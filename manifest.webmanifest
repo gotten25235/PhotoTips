@@ -1,0 +1,9 @@
+{
+  "name": "光影筆記 · 81 招拍攝技巧",
+  "short_name": "光影筆記",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a1412",
+  "theme_color": "#102a25",
+  "lang": "zh-Hant"
+}

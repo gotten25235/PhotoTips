@@ -1,0 +1,25 @@
+PhotoTips_0916 offline-ready build
+Build: 2026-09-17 v8
+
+Launcher:
+- START.bat uses embedded Windows PowerShell localhost HTTP server.
+- No Python / Anaconda required.
+- Auto-selects a free port from 8765 to 8785.
+
+Offline preparation:
+- Topbar online/offline indicator and offline shortcut.
+- Selective download: core / 81 thumbnails / 81 full images.
+- offline-manifest.json stores image byte size + SHA-256.
+- Real cache verification, missing-file list, retry-missing, clear images/all.
+- Separate caches: photo-tips-app-v8 / photo-tips-images-v1 / photo-tips-offline-meta-v1.
+- External Facebook / IG source pages are not cached.
+
+Verified data:
+- 81 tips
+- 16 source folders
+- 8 topic groups
+- 81 thumbnails + 81 full images
+- 0 missing manifest assets
+- 0 SHA-256 mismatches
+- app.js / offline.js / sw.js syntax OK
+- 170 HTTP assets returned 200 in local-server verification

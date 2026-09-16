@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102a25">
+  <meta name="description" content="81 招手機與相機拍攝技巧：男生、女生、人像、風景、建築、夜景、動態與調色。">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="光影筆記">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+  <title>光影筆記 · 81 招拍攝技巧</title>
+  <script>
+  (()=>{try{const t=localStorage.getItem('photo-tips-theme-v1');if(t)document.documentElement.dataset.theme=t;else document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}catch{}})();
+  </script>
+  <script defer src="data/tips.js"></script>
+  <script defer src="js/app.js"></script>
+  <script defer src="js/offline.js"></script>
+</head>
+<body>
+  <a class="skip" href="#tips">跳到技巧</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="回到首頁"><span class="brand-mark">影</span><span><strong>光影筆記</strong><small>PHOTO PLAYBOOK</small></span></a>
+    <div class="top-actions">
+      <span id="connection-badge" class="connection-badge" role="status" aria-live="polite">● 線上</span>
+      <button id="offline-btn" class="offline-shortcut" type="button" data-state="idle" title="離線準備"><span data-offline-wide>⇩ 離線準備</span><span class="offline-shortcut-compact" data-offline-compact>⇩ 離線</span></button>
+      <button id="random-btn" class="icon-btn" type="button" title="隨機一招" aria-label="隨機一招">↻</button>
+      <button id="fav-btn" class="icon-btn fav-top" type="button" title="只看收藏" aria-pressed="false">♡ <span id="fav-count">0</span></button>
+      <button id="theme-btn" class="icon-btn" type="button" title="切換明暗色" aria-label="切換明暗色">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-collage" aria-hidden="true">
+        <img src="images/sources/15-facebook-reel-2936209176743812-male-hiking/072-shoe-foreground-perspective-thumb.webp" alt=""><img src="images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/045-ground-level-wide-angle-thumb.webp" alt=""><img src="images/sources/13-facebook-reel-1095871943388192-corridor/065-pillar-frame-thumb.webp" alt=""><img src="images/sources/14-facebook-reel-1589829399301145-night-flash/068-lower-night-exposure-thumb.webp" alt="">
+      </div>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <span class="eyebrow">81 WAYS TO SHOOT BETTER</span>
+        <h1 id="hero-title">不知道怎麼拍，<br><em>先找一招。</em></h1>
+        <p>男生、女生、人像、風景、建築、夜景與拍攝基礎，一句話就能現場照著拍。</p>
+        <div class="hero-stats"><span><b>81</b> 招技巧</span><span><b>16</b> 來源</span><span><b>8</b> 主題</span></div>
+      </div>
+    </section>
+
+    <section class="discover" aria-label="快速分類">
+      <div class="quick-grid">
+        <button class="quick-card quick-male" data-primary="男生"><span>♂</span><b>男生</b><small>站姿 · 坐姿 · 低機位</small></button>
+        <button class="quick-card quick-female" data-primary="女生"><span>♀</span><b>女生</b><small>人像 · 構圖 · 氛圍感</small></button>
+        <button class="quick-card" data-primary="人像"><span>◉</span><b>人像</b><small>機位 · 姿勢 · 光線</small></button>
+        <button class="quick-card" data-primary="風景"><span>△</span><b>風景</b><small>草原 · 星空 · 全景</small></button>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="搜尋與篩選">
+      <div class="search-wrap"><span>⌕</span><input id="search" type="search" autocomplete="off" placeholder="搜尋：低機位、0.5×、夜景、坐姿…"><button id="clear-search" type="button" aria-label="清除搜尋">×</button></div>
+      <div class="group-mode-row" aria-label="瀏覽方式">
+        <span>瀏覽方式</span>
+        <div class="segmented" id="group-mode-toggle">
+          <button type="button" data-group-mode="source" class="is-active">依來源</button>
+          <button type="button" data-group-mode="topic">依主題</button>
+        </div>
+        <small id="group-mode-note">同一支來源影片放在一起</small>
+      </div>
+      <div class="filter-row" id="primary-filters" aria-label="主分類"></div>
+      <div class="filter-row secondary" id="secondary-filters" aria-label="拍法"></div>
+      <div class="filter-row tertiary" id="image-filters" aria-label="圖片分類"></div>
+      <div class="series-row"><label id="series-filter-label" for="series-filter">來源系列</label><select id="series-filter"></select><button id="reset-btn" type="button">重設</button></div>
+    </section>
+
+    <section id="tips" class="tips-section" aria-labelledby="tips-title">
+      <div class="section-head"><div><span class="eyebrow">PHOTO TIPS</span><h2 id="tips-title">來源系列</h2></div><span id="result-count" class="result-count">81 招 · 16 系列</span></div>
+      <div id="active-summary" class="active-summary" hidden></div>
+      <div id="series-stacks" class="series-stacks" aria-label="手機系列疊卡"></div>
+      <div id="series-desktop" class="series-desktop" aria-label="桌面系列分組"></div>
+      <div id="tips-grid" class="tips-grid" aria-hidden="true"></div>
+      <div id="empty" class="empty" hidden><b>找不到符合的技巧</b><span>換個關鍵字或重設篩選。</span><button type="button" data-reset>顯示全部</button></div>
+    </section>
+  </main>
+
+  <dialog id="offline-dialog" class="offline-dialog" aria-label="離線準備">
+    <div class="offline-shell">
+      <header class="offline-head">
+        <div><span class="eyebrow">OFFLINE READY</span><h2>離線準備</h2><p>出門拍照前，把技巧與圖片下載到這台裝置。</p></div>
+        <button type="button" class="reader-x" data-offline-close aria-label="關閉">×</button>
+      </header>
+
+      <section class="offline-body">
+        <div class="offline-status-row"><span class="offline-ready-badge" data-offline-badge>尚未檢查</span><span data-offline-connection>線上，可下載或更新離線內容</span></div>
+
+        <section class="offline-select-panel" aria-label="下載內容">
+          <div class="offline-select-head"><div><strong>下載內容</strong><small>核心檔為必要；圖片可分開準備</small></div><div><button type="button" class="offline-small-btn" data-offline-select-all>全選</button><button type="button" class="offline-small-btn" data-offline-select-none>只留核心</button></div></div>
+          <div class="offline-select-grid">
+            <label class="offline-select-item is-required"><input type="checkbox" checked disabled><span><strong>網頁核心 <em>必要</em></strong><small>介面、81 招資料、分類、收藏與 PWA</small></span></label>
+            <label class="offline-select-item"><input type="checkbox" data-offline-thumb checked><span><strong>預覽圖片</strong><small data-thumb-size>81 張縮圖</small></span></label>
+            <label class="offline-select-item"><input type="checkbox" data-offline-full checked><span><strong>完整圖片</strong><small data-full-size>81 張完整圖</small></span></label>
+          </div>
+          <div class="offline-size-line">已選下載容量：<b data-total-size>計算中…</b></div>
+        </section>
+
+        <div class="offline-progress" aria-live="polite"><div class="offline-progress-track"><span data-progress-bar></span></div><div class="offline-progress-copy"><strong data-progress-label>等待檢查</strong><span data-progress-count></span></div></div>
+
+        <div class="offline-check-grid">
+          <div><b data-core-status>○</b><span data-core-label>網頁核心</span></div>
+          <div><b data-thumb-status>○</b><span data-thumb-label>預覽縮圖</span></div>
+          <div><b data-full-status>○</b><span data-full-label>完整圖片</span></div>
+        </div>
+
+        <p class="offline-last">最近準備：<span data-last-prepared>尚未完成</span></p>
+        <div class="offline-actions">
+          <button type="button" class="offline-primary" data-offline-prepare>↓ 下載已選內容</button>
+          <button type="button" class="offline-action" data-offline-retry hidden>↻ 只重試缺少項目</button>
+          <button type="button" class="offline-action" data-offline-check>重新檢查</button>
+          <button type="button" class="offline-action" data-offline-install>＋ 安裝到主畫面</button>
+        </div>
+
+        <details class="offline-missing" data-missing-box hidden><summary data-missing-summary>查看未下載項目</summary><div class="offline-missing-list" data-missing-list></div></details>
+        <details class="offline-clear"><summary>清除離線資料</summary><p>清除圖片不會刪收藏與網站設定；「全部」會重建必要的核心快取。</p><div><button type="button" class="offline-action" data-offline-clear-images>清除圖片快取</button><button type="button" class="offline-action offline-danger" data-offline-clear-all>清除全部離線下載</button></div></details>
+        <p class="offline-note">Facebook / IG 等外部來源影片仍需連網；離線準備只包含本站資料與圖片。</p>
+      </section>
+      <footer class="offline-foot"><button type="button" class="offline-action" data-offline-close>完成</button></footer>
+    </div>
+  </dialog>
+
+  <dialog id="reader" class="reader-dialog" aria-label="技巧完整閱讀">
+    <div class="reader-shell">
+      <header class="reader-head"><button type="button" data-reader-close>← 返回</button><div><span class="eyebrow">PHOTO TIP</span><strong id="reader-head-title">拍攝技巧</strong></div><button type="button" class="reader-x" data-reader-close aria-label="關閉">×</button></header>
+      <div id="reader-scroll" class="reader-scroll"></div>
+      <footer class="reader-foot"><button type="button" data-reader-nav="prev">← 上一招</button><span id="reader-pos">1 / 1 · 系列內左右滑動</span><button type="button" data-reader-nav="next">下一招 →</button></footer>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

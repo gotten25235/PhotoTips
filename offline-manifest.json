@@ -1,0 +1,841 @@
+{
+  "version": "2026.09.17-offline-v1",
+  "generatedAt": "2026-09-16T16:04:25.612Z",
+  "core": [
+    {
+      "url": "./index.html"
+    },
+    {
+      "url": "./css/style.css"
+    },
+    {
+      "url": "./js/app.js"
+    },
+    {
+      "url": "./js/offline.js"
+    },
+    {
+      "url": "./data/tips.js"
+    },
+    {
+      "url": "./manifest.webmanifest"
+    },
+    {
+      "url": "./offline-manifest.json"
+    }
+  ],
+  "thumbs": [
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/001-full-body-portrait-thumb.webp",
+      "bytes": 73936,
+      "sha256": "e9a12f175eaac115b0c31150910e984f699333ab2370331ee2e505b43d638229"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/002-close-up-portrait-thumb.webp",
+      "bytes": 29222,
+      "sha256": "52fdc24c2ce8a57d571726255d4ffb4db6ab08cbefb6a07871bd9cf857685d7a"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/003-layered-depth-thumb.webp",
+      "bytes": 42974,
+      "sha256": "6171cd5c0fbf4675bba684fa029c9afbe0d502e2240c6fa15722781aea3a7a0b"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/004-negative-space-thumb.webp",
+      "bytes": 39204,
+      "sha256": "6a622748c621ed0b65270229a6f88ac435640379b133f88be82354bf3d4faed5"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/005-storytelling-frame-thumb.webp",
+      "bytes": 41068,
+      "sha256": "20af3f4927c8b61764667fec13f64ab30d8f127725fd659e5fa0fb48a6c6b3c0"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/006-lying-pose-thumb.webp",
+      "bytes": 44318,
+      "sha256": "f5da71404591af81304ed90d7d5b1832c73f1e2c49e21c024f5ae07e7d37c782"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/007-strong-presence-thumb.webp",
+      "bytes": 65686,
+      "sha256": "62a29a153320e72e733e0e71ae121a522e48b36a4472629c5eff959272815fdd"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/008-friendly-expression-thumb.webp",
+      "bytes": 27402,
+      "sha256": "a8a569121bbe2beabcfbbb3c2817c18a57169ab62d9639db39a8f94a60b733ec"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/009-perspective-depth-thumb.webp",
+      "bytes": 57382,
+      "sha256": "b7e7509fe340020db219e39b81345f16bfe74779091c32f46c2ffedd467b5811"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/010-ambient-light-thumb.webp",
+      "bytes": 33888,
+      "sha256": "aefe399796840760aedf98ebfd7e553339f459a7a2b529adef760014c75f549b"
+    },
+    {
+      "url": "./images/sources/02-facebook-share-v-1VuUSg26Gi-portrait-angles/011-full-body-camera-height-thumb.webp",
+      "bytes": 9990,
+      "sha256": "625533aea5dcb715e2b2ad364206f2b02b56670c7b59587db58de6cac35c86b4"
+    },
+    {
+      "url": "./images/sources/02-facebook-share-v-1VuUSg26Gi-portrait-angles/012-half-body-camera-height-thumb.webp",
+      "bytes": 32162,
+      "sha256": "634e6113ae94efa0c67af68a9bf26d9d0fa7ef960f79e083af02704b8ce56822"
+    },
+    {
+      "url": "./images/sources/02-facebook-share-v-1VuUSg26Gi-portrait-angles/013-close-up-camera-height-thumb.webp",
+      "bytes": 22792,
+      "sha256": "859a10ccf6ce74cf4e70ad951ff7af1d31ae0a78f2fba93ea4ae6cd4a532e7b6"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/014-low-iso-not-always-best-thumb.webp",
+      "bytes": 45300,
+      "sha256": "69bbb3c6abecaad4806462f45c78f7a844ac7a25924cefdd718bb6a1e0d599f2"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/015-raise-iso-in-low-light-thumb.webp",
+      "bytes": 39698,
+      "sha256": "2eed02d10304b2cbf694e6271f7f55add088ca9b8beb44707a17827cd2124034"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/016-protect-highlights-thumb.webp",
+      "bytes": 55984,
+      "sha256": "0208e5c48e2fe899a6708915b67ae7b9a5cdb6c6c8e5a48a413b99901b8415df"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/017-exposure-bracketing-thumb.webp",
+      "bytes": 17436,
+      "sha256": "d79c6690a78834c4848be632e1dfdc3d552382e25b33963794bb2f61e3864c9c"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/018-read-histogram-thumb.webp",
+      "bytes": 39256,
+      "sha256": "a57a6b1582feabfb69a30f1d91f25cc3e7d441be9c9568eccc452124d29801d0"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/019-expose-to-the-right-thumb.webp",
+      "bytes": 54160,
+      "sha256": "89c542b920868c5b866356f0fc158576bdc5240adefb9a056adc7b912b8b93e9"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/020-recover-brightness-in-post-thumb.webp",
+      "bytes": 46610,
+      "sha256": "042d1ff64ecfac2a57ba70692b7c4d166bda7d7d0babc1beee0ccb3ea1e9a62e"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/021-flying-bird-shutter-thumb.webp",
+      "bytes": 32014,
+      "sha256": "b3583be8cc87251c99c08c194a2b554aef8b889429157d278126efc8891390c0"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/022-racing-car-shutter-thumb.webp",
+      "bytes": 72588,
+      "sha256": "cd4cbbd5503f3e4f8689a42eb656edfc5cd87caa2072d211c5572dac39ff2593"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/023-sports-shutter-thumb.webp",
+      "bytes": 83906,
+      "sha256": "9acc4aa87811da54c7259f14f3ef3f38dc9e18f3253601eaf72bfa2bd5e365a8"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/024-children-shutter-thumb.webp",
+      "bytes": 28234,
+      "sha256": "3729b4249da18aea3f3cfdce07e80138bc39a293db1c8ee3a39b7a189f10d9bf"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/025-street-documentary-shutter-thumb.webp",
+      "bytes": 67626,
+      "sha256": "005f3f102120d5c0765df884cc7a71a98de7f4ae60c56919473845e80a7a7452"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/026-still-life-shutter-thumb.webp",
+      "bytes": 25642,
+      "sha256": "acc0cd60bcd105bda98128c6595618079937c451f00cfbafdb4a711a813a9247"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/027-panning-focus-thumb.webp",
+      "bytes": 42792,
+      "sha256": "6d4578f48758a38623d115967f2261cd905319eaf6ad92376bc19eea69fe7611"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/028-silky-water-thumb.webp",
+      "bytes": 75768,
+      "sha256": "68df17823abec3f3ebb1164370fc2fcf637a1dbeed79f9b8666ace254e10323a"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/029-fireworks-long-exposure-thumb.webp",
+      "bytes": 126672,
+      "sha256": "69791bef72bfb563b3adc1eb6cccf848ecef0fda0da74614e856cfb9e5c85a25"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/030-starry-sky-thumb.webp",
+      "bytes": 76086,
+      "sha256": "f552bb04540d06a1d487cdc0b7782406b9bd359f4cd97f8138ea6ad9f0c83817"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/031-light-trails-thumb.webp",
+      "bytes": 57160,
+      "sha256": "6096613190090203d079f4e1cfd5b2ffaa8b9f9641c240d236d3f91bf781501c"
+    },
+    {
+      "url": "./images/sources/05-facebook-share-r-18LejPaB6B-stair-portrait/032-wall-wide-angle-thumb.webp",
+      "bytes": 27636,
+      "sha256": "61adc74875f0cc5a8b0dca222dd6476ed19d2ddb2c912d496d9a9c895b58577f"
+    },
+    {
+      "url": "./images/sources/05-facebook-share-r-18LejPaB6B-stair-portrait/033-stair-sitting-pose-thumb.webp",
+      "bytes": 34452,
+      "sha256": "f3d555b069edeec16d6156b86add9ce161671a0e8d8d410eab69bd6bb7455bf3"
+    },
+    {
+      "url": "./images/sources/05-facebook-share-r-18LejPaB6B-stair-portrait/034-crouch-hand-forward-thumb.webp",
+      "bytes": 30034,
+      "sha256": "dc7d2e8568c26ae89f5c8ff70900fcd7314353232a812391069a25d8a2379342"
+    },
+    {
+      "url": "./images/sources/05-facebook-share-r-18LejPaB6B-stair-portrait/035-railing-perspective-thumb.webp",
+      "bytes": 31482,
+      "sha256": "6844ce2161505f2c28bff39dfe4d95f7032bcd72c5eacf93e22990f89960ce0e"
+    },
+    {
+      "url": "./images/sources/06-facebook-share-r-1BuoB6hboL-tree-panorama/036-tree-panorama-bottom-up-thumb.webp",
+      "bytes": 109394,
+      "sha256": "f3822d2161bc57885e36c256369083799f85bcf65caafb2e35555e6147b00baf"
+    },
+    {
+      "url": "./images/sources/07-facebook-share-r-18C7iSfYmr-grassland-travel/037-sky-half-body-thumb.webp",
+      "bytes": 34254,
+      "sha256": "0409ee964957684f9482168aab31a8bc750df3c76917298b13ca3b93d88ab86f"
+    },
+    {
+      "url": "./images/sources/07-facebook-share-r-18C7iSfYmr-grassland-travel/038-grassland-negative-space-thumb.webp",
+      "bytes": 46578,
+      "sha256": "5eebbf4a583e12d4ee4cd884bc422019e923e902b8b618b108fb26dc9d2d16e8"
+    },
+    {
+      "url": "./images/sources/07-facebook-share-r-18C7iSfYmr-grassland-travel/039-half-sky-half-person-thumb.webp",
+      "bytes": 39146,
+      "sha256": "2a87cf01d422042a24664b48e4dd2b9b58ac169a5fc488cefafa681d74ed32c4"
+    },
+    {
+      "url": "./images/sources/07-facebook-share-r-18C7iSfYmr-grassland-travel/040-three-frame-travel-thumb.webp",
+      "bytes": 28512,
+      "sha256": "d715d3595ab7ab34bbd8171e5ad9e67732eac89dcebb3b40aeda024b3248744d"
+    },
+    {
+      "url": "./images/sources/08-facebook-share-r-14rgeQcVA5M-autumn-portrait/041-stairs-lower-left-thumb.webp",
+      "bytes": 60970,
+      "sha256": "85874f0ac4ae70ef02f77e971dab903a8d68214b9a4041866582bc71f367cdfe"
+    },
+    {
+      "url": "./images/sources/08-facebook-share-r-14rgeQcVA5M-autumn-portrait/042-tree-canopy-low-angle-thumb.webp",
+      "bytes": 122314,
+      "sha256": "3b327614812c336238788aa5918bc60b72472c1217074d4be99284b32a8a53d5"
+    },
+    {
+      "url": "./images/sources/08-facebook-share-r-14rgeQcVA5M-autumn-portrait/043-road-leading-lines-thumb.webp",
+      "bytes": 76252,
+      "sha256": "129e62703ad2ea0665855a464c7e42f6c23cebfb376d481fed8a1e83725ef49d"
+    },
+    {
+      "url": "./images/sources/08-facebook-share-r-14rgeQcVA5M-autumn-portrait/044-tree-side-profile-thumb.webp",
+      "bytes": 56478,
+      "sha256": "4680534efc60cf58dfba7972bc7b0887a445562a870f8a332db0e60868e0fb89"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/045-ground-level-wide-angle-thumb.webp",
+      "bytes": 57664,
+      "sha256": "a5b7a9619413653c1c989eae1b9f41dbffdaa6cbfad42b80745d5ccb67f78228"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/046-phone-frame-thumb.webp",
+      "bytes": 34632,
+      "sha256": "7ae6307a3a60f1712d6e62a3bf21f108275da7c8e17dd84bdf62784ae94fc89b"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/047-flower-foreground-thumb.webp",
+      "bytes": 31432,
+      "sha256": "2ea933a5150b62cf22cbee74cfa49da5e34b7cdbe44661e506cc7d90101e9e38"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/048-flower-diagonal-thumb.webp",
+      "bytes": 102922,
+      "sha256": "5e5ce1a1e1440bbaa1d0307a588690784a6f677883435a3137fba71ffec6d522"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/049-running-candid-thumb.webp",
+      "bytes": 58342,
+      "sha256": "c6f79072dd6ad6654f6f3af3b0479d313e190c58c154d12a410bd84ae6b9504c"
+    },
+    {
+      "url": "./images/sources/10-facebook-share-r-1C2vPM5NRQ-exposure-triangle/050-aperture-depth-of-field-thumb.webp",
+      "bytes": 71192,
+      "sha256": "c22f60eab168ca15ea0dc5c21ba8b356b074d8e2ec5efc29e317102d197ce762"
+    },
+    {
+      "url": "./images/sources/10-facebook-share-r-1C2vPM5NRQ-exposure-triangle/051-shutter-freeze-motion-thumb.webp",
+      "bytes": 52144,
+      "sha256": "83c30ade6c3832a2e2f7c0c4134e280d212487312f19f30a3369f0d260774126"
+    },
+    {
+      "url": "./images/sources/10-facebook-share-r-1C2vPM5NRQ-exposure-triangle/052-iso-noise-thumb.webp",
+      "bytes": 47084,
+      "sha256": "42c4272394aaacc5179824edb2b08479de77b851c7a7c0a30237788cd90a756f"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/053-fix-yellow-skin-thumb.webp",
+      "bytes": 25172,
+      "sha256": "29f86bb081cf7e8e3eaea58b733cc2ad351c73d756a02c9c5c681c5f7d9f1781"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/054-brighten-dark-image-thumb.webp",
+      "bytes": 19904,
+      "sha256": "6a0825f848a45d53167f7025ebfab059eaebb55c658160480855b5021ccc4ebc"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/055-soften-portrait-thumb.webp",
+      "bytes": 21508,
+      "sha256": "a51920721170f4136c672d8520c3f237b4d59af426d357f2ed16b081d765d422"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/056-add-contrast-to-flat-image-thumb.webp",
+      "bytes": 13426,
+      "sha256": "3f0efb4e5830b21052782c4b3f69e5a64bc92790a03ac843f130d4d172d5f43a"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/057-boost-faded-colors-thumb.webp",
+      "bytes": 27074,
+      "sha256": "c1405d0f829a8ec5ef4927e21b113d07639e7c6f7550cd0bf53cac7cb74ac197"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/058-vintage-fade-thumb.webp",
+      "bytes": 22746,
+      "sha256": "a4db6247c3b5171432c69189670f2d6321be097ff86215bed163711f2fda3b55"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/059-avoid-half-half-frame-thumb.webp",
+      "bytes": 97784,
+      "sha256": "4d8e0ebaeb246bb43ba64d261be279c2e6a1afb0464a03d78ba4ba636e07e110"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/060-low-angle-phone-tilt-thumb.webp",
+      "bytes": 54174,
+      "sha256": "cb1f9d45e7b532876d49263a4889c0ae7be03e94f5070770cc3028124c2bb4cf"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/061-lower-middle-grid-thumb.webp",
+      "bytes": 62914,
+      "sha256": "15398672ae0763aab176a0f30e59872ef8886a6285777cfa0ae6ea0140626778"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/062-front-foot-bottom-edge-thumb.webp",
+      "bytes": 73378,
+      "sha256": "99dc3e386baf67d8832b5a5baebffa1bdb5c7c263e891b855cbcc587b634a34d"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/063-warm-portrait-grade-thumb.webp",
+      "bytes": 63478,
+      "sha256": "9e53275f31ca3df409b413cfa3cef8271b75babfbe3897c8e5a9acc70e63ad4d"
+    },
+    {
+      "url": "./images/sources/13-facebook-reel-1095871943388192-corridor/064-corridor-4x-compression-thumb.webp",
+      "bytes": 41498,
+      "sha256": "7f05fec41beb7c4cdfac71485f17e531709c8ab8b493ad12debce49632e05811"
+    },
+    {
+      "url": "./images/sources/13-facebook-reel-1095871943388192-corridor/065-pillar-frame-thumb.webp",
+      "bytes": 52180,
+      "sha256": "415f910792af16e5b7de8e74516d7c366522cb5940b3b427ea085d81923ff1bb"
+    },
+    {
+      "url": "./images/sources/13-facebook-reel-1095871943388192-corridor/066-landscape-rule-of-thirds-thumb.webp",
+      "bytes": 32502,
+      "sha256": "d62d11315b6cee17d45236f2f2710fe9e581195d5a045f4c9bf85c4af5088872"
+    },
+    {
+      "url": "./images/sources/13-facebook-reel-1095871943388192-corridor/067-portrait-mode-headroom-thumb.webp",
+      "bytes": 42966,
+      "sha256": "7b352b52aafb886f9fc995525fa52be9deb890c9f662694396d31165a83a45cf"
+    },
+    {
+      "url": "./images/sources/14-facebook-reel-1589829399301145-night-flash/068-lower-night-exposure-thumb.webp",
+      "bytes": 49324,
+      "sha256": "13ab9076bb36f4024dd58cea8743ef92e0cedfd362ae05a7283f57bde06e1779"
+    },
+    {
+      "url": "./images/sources/14-facebook-reel-1589829399301145-night-flash/069-contrast-color-filter-thumb.webp",
+      "bytes": 48600,
+      "sha256": "4d262cf590ea6e32670d7846580a2fb8b54a292f238884a696b49f06a186e38e"
+    },
+    {
+      "url": "./images/sources/14-facebook-reel-1589829399301145-night-flash/070-night-flash-thumb.webp",
+      "bytes": 41634,
+      "sha256": "3f8d42901e611df6eb5c44b7f440746ed1ca832f262f9d51e4de8759da1446db"
+    },
+    {
+      "url": "./images/sources/14-facebook-reel-1589829399301145-night-flash/071-1-2x-hairline-grid-thumb.webp",
+      "bytes": 41722,
+      "sha256": "a45ac5e118261df4f3509f5e0dc612f4b524c3bf861d15a66711ce7b3594b4dc"
+    },
+    {
+      "url": "./images/sources/15-facebook-reel-2936209176743812-male-hiking/072-shoe-foreground-perspective-thumb.webp",
+      "bytes": 39418,
+      "sha256": "a1977de038838ee20cf6ec290885e4de196988df10b694e28636572a4b7e8ca6"
+    },
+    {
+      "url": "./images/sources/15-facebook-reel-2936209176743812-male-hiking/073-relaxed-sitting-pose-thumb.webp",
+      "bytes": 41902,
+      "sha256": "35fa13c79bed34857d6c7b9b2d78440628307ef975791af179c0e7f76313cc28"
+    },
+    {
+      "url": "./images/sources/15-facebook-reel-2936209176743812-male-hiking/074-wide-angle-standing-pose-thumb.webp",
+      "bytes": 48638,
+      "sha256": "7fca001104a77789d08bc059dd33acce56ad55ca63399fa59465daa05697e7a4"
+    },
+    {
+      "url": "./images/sources/15-facebook-reel-2936209176743812-male-hiking/075-sitting-staggered-legs-thumb.webp",
+      "bytes": 47728,
+      "sha256": "ce18caa23bed8e9cec1b98aa5309374619dd62c459e8661a10407334244e9a44"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/076-2x-low-angle-thumb.webp",
+      "bytes": 38566,
+      "sha256": "4232063c3ad0797f96eec710e799d4f8ad2f1d930c11efbee735198a7f3bc4b3"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/077-person-building-half-frame-thumb.webp",
+      "bytes": 32062,
+      "sha256": "2c9142c6dcf98c3dbb2a5f307f2c436f7b8918e3b20369581a8352ae8ee80abc"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/078-wall-hide-crowd-thumb.webp",
+      "bytes": 29756,
+      "sha256": "d8b676aab990ffa4cdbfacf7a205d7f65c793dfde599514ba22048c3b656d752"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/079-building-top-right-thumb.webp",
+      "bytes": 31386,
+      "sha256": "9130bcbbedd030d3ef9cf2c4d5a114e3329abae195ed57f4a1523c78f22cb60c"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/080-sharp-building-blurred-person-thumb.webp",
+      "bytes": 33510,
+      "sha256": "51a8113093a6a3d1e3c517cc905fd6227833b08516205de68f4814596df0c14d"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/081-railing-3x-compression-thumb.webp",
+      "bytes": 48664,
+      "sha256": "28377fa1e19e5c44535ceba3f92aa30bbb9f9cba7f211cbe81bda697853b707a"
+    }
+  ],
+  "full": [
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/001-full-body-portrait.webp",
+      "bytes": 227888,
+      "sha256": "c20efe8754c08632042c19c38c02afad2895cdb911db83376c0f65701203cbc7"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/002-close-up-portrait.webp",
+      "bytes": 99690,
+      "sha256": "32c9eeaf3cee54b65a19e73df75508dcae6d4bf107b9233b58493701178df68b"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/003-layered-depth.webp",
+      "bytes": 161136,
+      "sha256": "8a98df1ef4de5e73fd2b7f57928051d2f2e5176e98d18485f3b952238c9a264e"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/004-negative-space.webp",
+      "bytes": 134156,
+      "sha256": "7b9e15efe4541e0227ed91d2bd24483f63ca15b9ba8b115b9b7f1517c1736fea"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/005-storytelling-frame.webp",
+      "bytes": 100458,
+      "sha256": "30cbf4347c4d7c2bf1bb6cacad4351125689fae439caa8be21b7f2a1d328a6bb"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/006-lying-pose.webp",
+      "bytes": 187922,
+      "sha256": "63983e8ec76619aa9dd5c6016b03200f8159362ef865e6d559b3c37df9632740"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/007-strong-presence.webp",
+      "bytes": 178474,
+      "sha256": "75fede86efa1c3e9d524db25cf5f339191ae4b543f0fd8fd8e1410c1fcc3ae36"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/008-friendly-expression.webp",
+      "bytes": 91522,
+      "sha256": "18c9d66a45d5946ee260d20b9f61211f96f8e53b13ff83d28d262c5b98dbd074"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/009-perspective-depth.webp",
+      "bytes": 128410,
+      "sha256": "910415aaaccb2532bde92320832d9409d622b5209085c18088465c1d7b93f4d4"
+    },
+    {
+      "url": "./images/sources/01-facebook-reel-1427829092611870-portrait-composition/010-ambient-light.webp",
+      "bytes": 94796,
+      "sha256": "e4e679ddf5b40263f9ff92a5093d6d8b2188a9022180f8591b9d56718700213a"
+    },
+    {
+      "url": "./images/sources/02-facebook-share-v-1VuUSg26Gi-portrait-angles/011-full-body-camera-height.webp",
+      "bytes": 14818,
+      "sha256": "740f9dbe0391387e80e5a89e4af1e3ce2df153cc6eed8134bfa73a5033aedb22"
+    },
+    {
+      "url": "./images/sources/02-facebook-share-v-1VuUSg26Gi-portrait-angles/012-half-body-camera-height.webp",
+      "bytes": 46224,
+      "sha256": "65dc1739449d986bdeeeb4d96a9eee9fe6aad13d39d4a3b3dc6c83d44eb5e04a"
+    },
+    {
+      "url": "./images/sources/02-facebook-share-v-1VuUSg26Gi-portrait-angles/013-close-up-camera-height.webp",
+      "bytes": 49300,
+      "sha256": "d285975a85a503cc55676b34f3f143b6d3064502406bcbdc7048046fdd5a4ba4"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/014-low-iso-not-always-best.webp",
+      "bytes": 77520,
+      "sha256": "f2cd40862ff553bf1b627155d509023799f377fb9d364a54f44d4b98cdc42e25"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/015-raise-iso-in-low-light.webp",
+      "bytes": 57264,
+      "sha256": "e6f96e93c0aeab41420a69168776aab9784717b2ced0915b8c65b556420bd7de"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/016-protect-highlights.webp",
+      "bytes": 96696,
+      "sha256": "0b677b33f84e3fa7769ad0388050147d18518c6bc599fa6144649258a1239fd3"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/017-exposure-bracketing.webp",
+      "bytes": 30728,
+      "sha256": "88cf230b272db12dbe7427228822589c3c84dbe6bca367a58a40a846d7a048a5"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/018-read-histogram.webp",
+      "bytes": 66258,
+      "sha256": "9ce523d52fb986537cd59beba4e93118125febe659de661e293fd5dee694b4e9"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/019-expose-to-the-right.webp",
+      "bytes": 95582,
+      "sha256": "6d5950fb371d3c66c56796cdc0e27925445f36003e5009b2dfc43ee5b73b7597"
+    },
+    {
+      "url": "./images/sources/03-facebook-reel-1063888769453150-exposure-control/020-recover-brightness-in-post.webp",
+      "bytes": 71742,
+      "sha256": "e056b5dffbc94f11eff8150004ffe22fab2da859f4f13a6d2fe1916c2f003dc5"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/021-flying-bird-shutter.webp",
+      "bytes": 86162,
+      "sha256": "63315dbf7854af7d05e1f68d48f28d51b49aff8a1575e11e8892cc3c4b02b5dc"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/022-racing-car-shutter.webp",
+      "bytes": 170660,
+      "sha256": "d2595cc665b6ebfc09e4e52d429f4ea902d47b3f0edb2249b5921654ae72e3f1"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/023-sports-shutter.webp",
+      "bytes": 188182,
+      "sha256": "9d5c78cc70bcbebd61faf172406d24deaf5d00f32f18d1b5bb0cfe71f48a72ab"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/024-children-shutter.webp",
+      "bytes": 66272,
+      "sha256": "921e763b53d4c671a9bfbf29590d8dcb28c898d71d5230dbd665fbf2af9ce598"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/025-street-documentary-shutter.webp",
+      "bytes": 166578,
+      "sha256": "1251e3cdd2365ac9c1aba4dd36ac20e7cf8ac7f783a189e4f9899c448c8382e4"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/026-still-life-shutter.webp",
+      "bytes": 72134,
+      "sha256": "c1c723d1fef5a8f5830739ef680ca09c7c16989a7a300d8d14a2094ec46bde56"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/027-panning-focus.webp",
+      "bytes": 90624,
+      "sha256": "8bb1145c69c2c1043e9feb5f2bac19bdc31c597e8221b11369ac12b834aaa104"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/028-silky-water.webp",
+      "bytes": 262182,
+      "sha256": "6cd69281aaab1c07835dbc3fdc76c7ff5c4ba176089cb114a1869ddd0e4e99c3"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/029-fireworks-long-exposure.webp",
+      "bytes": 206810,
+      "sha256": "743e53ff659db580399cb04a2a0c69673859a5dcb1c03531bb61150ccdf51f8f"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/030-starry-sky.webp",
+      "bytes": 141512,
+      "sha256": "a579d4c80212f8036d52849234b9a6ed2467da56604bdf72133ee7365a7b5ef9"
+    },
+    {
+      "url": "./images/sources/04-facebook-share-v-19iqoiWdQN-shutter-speed/031-light-trails.webp",
+      "bytes": 116536,
+      "sha256": "d798176fca7ea4e275c82df3a2d16806af66f123b07b79f796b33933b61714a6"
+    },
+    {
+      "url": "./images/sources/05-facebook-share-r-18LejPaB6B-stair-portrait/032-wall-wide-angle.webp",
+      "bytes": 23376,
+      "sha256": "5d2b23266692bcbb65d359fe18ef7e490ee1261e2a5cc869579510a4f8392edf"
+    },
+    {
+      "url": "./images/sources/05-facebook-share-r-18LejPaB6B-stair-portrait/033-stair-sitting-pose.webp",
+      "bytes": 27890,
+      "sha256": "51257cd3d605e838a2833758da848e47290be408f73fd9a0bdbfcc5a460ae85f"
+    },
+    {
+      "url": "./images/sources/05-facebook-share-r-18LejPaB6B-stair-portrait/034-crouch-hand-forward.webp",
+      "bytes": 25676,
+      "sha256": "f8b38e69aac56b3ab45679f24662748829c28f987a59af4a38532778a26435ae"
+    },
+    {
+      "url": "./images/sources/05-facebook-share-r-18LejPaB6B-stair-portrait/035-railing-perspective.webp",
+      "bytes": 27056,
+      "sha256": "18ae19ebd930fc3dc7889a2ef97f205a1ce330aa3e00623c8718112385bbc56a"
+    },
+    {
+      "url": "./images/sources/06-facebook-share-r-1BuoB6hboL-tree-panorama/036-tree-panorama-bottom-up.webp",
+      "bytes": 102570,
+      "sha256": "623840896cda0ec630ea141158b471dcf286916b9166a93a87c68d9a318bbdc4"
+    },
+    {
+      "url": "./images/sources/07-facebook-share-r-18C7iSfYmr-grassland-travel/037-sky-half-body.webp",
+      "bytes": 29550,
+      "sha256": "d04f96e555d4da4560f049345c1477a4f390eee6c3ca536d13e80dcb229432cd"
+    },
+    {
+      "url": "./images/sources/07-facebook-share-r-18C7iSfYmr-grassland-travel/038-grassland-negative-space.webp",
+      "bytes": 36996,
+      "sha256": "293dc691e4d80ad81de62d399f30ad9c61e26d406107be46bdc5ca653b29fd4f"
+    },
+    {
+      "url": "./images/sources/07-facebook-share-r-18C7iSfYmr-grassland-travel/039-half-sky-half-person.webp",
+      "bytes": 31788,
+      "sha256": "f9ebc0c4d8c497fbb325a9eac4baab5aba03c417d75848cf44e398ab46acb03f"
+    },
+    {
+      "url": "./images/sources/07-facebook-share-r-18C7iSfYmr-grassland-travel/040-three-frame-travel.webp",
+      "bytes": 28040,
+      "sha256": "e3cc09535daed4e896489963c23a6f99b00ec55443ad9b27e664d92481a8703a"
+    },
+    {
+      "url": "./images/sources/08-facebook-share-r-14rgeQcVA5M-autumn-portrait/041-stairs-lower-left.webp",
+      "bytes": 42670,
+      "sha256": "9f455d384e811038949d1c2365bb88223fdbd5e4cfa404d735afdeb2e5a9094e"
+    },
+    {
+      "url": "./images/sources/08-facebook-share-r-14rgeQcVA5M-autumn-portrait/042-tree-canopy-low-angle.webp",
+      "bytes": 78692,
+      "sha256": "ebd4a727ee88a45207de457c99d58d77092f07c5945060aa5a79c5a6922ff36a"
+    },
+    {
+      "url": "./images/sources/08-facebook-share-r-14rgeQcVA5M-autumn-portrait/043-road-leading-lines.webp",
+      "bytes": 54510,
+      "sha256": "fcb20c9ed3bca8475315cbe9677f0d0483844b486f31e928817b289ed1573cab"
+    },
+    {
+      "url": "./images/sources/08-facebook-share-r-14rgeQcVA5M-autumn-portrait/044-tree-side-profile.webp",
+      "bytes": 38718,
+      "sha256": "9f0a541648fd1650ea397c6a574cf4cf46c1595d5c29d86b7886949eb46ac474"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/045-ground-level-wide-angle.webp",
+      "bytes": 41720,
+      "sha256": "80c7e2df8fa581a00837ba572a29d1508a586309423c3125003168936c5c80c7"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/046-phone-frame.webp",
+      "bytes": 26986,
+      "sha256": "5dd53d7f506b86a076c72348dbe55b1aa638fcec7b5aa9da22e0cd103e4a5766"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/047-flower-foreground.webp",
+      "bytes": 25906,
+      "sha256": "b60aaeec3704b7c430f5c44538a0fe063979933077aad8c0bd4672576790c941"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/048-flower-diagonal.webp",
+      "bytes": 72290,
+      "sha256": "2e8ee0b678b0bc0a07b954116131baedfad12a8b28f8c9d36a4f1eff0164d5f7"
+    },
+    {
+      "url": "./images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/049-running-candid.webp",
+      "bytes": 43776,
+      "sha256": "d8c05f7c72bce20d05af7de351b35a687fda3b1bb4149ebecde590cafcc60221"
+    },
+    {
+      "url": "./images/sources/10-facebook-share-r-1C2vPM5NRQ-exposure-triangle/050-aperture-depth-of-field.webp",
+      "bytes": 109632,
+      "sha256": "6054330feffc67a7644ef84ba85e1f4d93b43d7f042c95adf969ef0f960d8825"
+    },
+    {
+      "url": "./images/sources/10-facebook-share-r-1C2vPM5NRQ-exposure-triangle/051-shutter-freeze-motion.webp",
+      "bytes": 81134,
+      "sha256": "bd67d7749644dc8fe86005db984481011b0a5e87818dc23943dfbb46ff83e46b"
+    },
+    {
+      "url": "./images/sources/10-facebook-share-r-1C2vPM5NRQ-exposure-triangle/052-iso-noise.webp",
+      "bytes": 75780,
+      "sha256": "877f0e6e9e97174076431c577f8b99c076d4b65fb340d52276ad341d8f5617cf"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/053-fix-yellow-skin.webp",
+      "bytes": 53426,
+      "sha256": "8b62d98a65c1876ccbfafab00e2a7b0c15073dc930c05366863ac622321c6077"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/054-brighten-dark-image.webp",
+      "bytes": 51652,
+      "sha256": "0799d9e99c69b6795d7d57518a8e336e9c4a38ffdbfb6bb5637df6a5095af539"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/055-soften-portrait.webp",
+      "bytes": 47256,
+      "sha256": "9a8092df49307f6af1bd88894681f6e505ab9ad7a4b4d428a84aa9305f477706"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/056-add-contrast-to-flat-image.webp",
+      "bytes": 42204,
+      "sha256": "35973886c59c1dff657a27e4b43c93973bba34cae32592a826f5248938fddc75"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/057-boost-faded-colors.webp",
+      "bytes": 58104,
+      "sha256": "0d769c699833c6a9a8ec84337a9e9497e62744b3b382835a4d9544cd014a8a1f"
+    },
+    {
+      "url": "./images/sources/11-facebook-share-v-1c9SWQ8NdK-portrait-color/058-vintage-fade.webp",
+      "bytes": 50908,
+      "sha256": "c949d78894e8aa65a96aab8455deec42ddf1d0d0b70adf470026862191b6b3de"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/059-avoid-half-half-frame.webp",
+      "bytes": 117422,
+      "sha256": "08d4eb4da53a323e5f71fa4d5116d4f31b0061ab883da2b73cf8d7026beff116"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/060-low-angle-phone-tilt.webp",
+      "bytes": 61412,
+      "sha256": "2dd8ae13f963c3ad68d36678fe65a5d26230168d9799e96e2b8886fd77cdfa79"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/061-lower-middle-grid.webp",
+      "bytes": 91832,
+      "sha256": "2958df5688ea7bce655e7465636f3cd5f20220dde35f55a73674926656e7bf1f"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/062-front-foot-bottom-edge.webp",
+      "bytes": 102730,
+      "sha256": "63e0f155886230ea54bdf7444e15a7bb8d0ed83af31feefcbb876c895da6555a"
+    },
+    {
+      "url": "./images/sources/12-facebook-reel-1755771195737398-full-body/063-warm-portrait-grade.webp",
+      "bytes": 91478,
+      "sha256": "dddaef7b93db1bd1c09fad7f345810b2072519f365ef7733433747ef394144b2"
+    },
+    {
+      "url": "./images/sources/13-facebook-reel-1095871943388192-corridor/064-corridor-4x-compression.webp",
+      "bytes": 51352,
+      "sha256": "3149ac270d6c0ef5c90b33fafa1e375303fb8ee8a04ac44b40e92fc0f0307b11"
+    },
+    {
+      "url": "./images/sources/13-facebook-reel-1095871943388192-corridor/065-pillar-frame.webp",
+      "bytes": 72380,
+      "sha256": "df884852eaeabea36352532f2d4a8b9d8fbc12b8d85402fb0b0804f7da64b0ab"
+    },
+    {
+      "url": "./images/sources/13-facebook-reel-1095871943388192-corridor/066-landscape-rule-of-thirds.webp",
+      "bytes": 37206,
+      "sha256": "09051dd09d2459b12b88a14df9c70426b1d1a589cd07e94d9854cd1736ee7183"
+    },
+    {
+      "url": "./images/sources/13-facebook-reel-1095871943388192-corridor/067-portrait-mode-headroom.webp",
+      "bytes": 52966,
+      "sha256": "502dd9502f807cfe2dfc683a2ea5149049cb13c0dbb35de3d0f972362de5d89a"
+    },
+    {
+      "url": "./images/sources/14-facebook-reel-1589829399301145-night-flash/068-lower-night-exposure.webp",
+      "bytes": 79610,
+      "sha256": "c0286147808391efe6e9619522a07194f99bd85e888a39f0984e7b4858487e23"
+    },
+    {
+      "url": "./images/sources/14-facebook-reel-1589829399301145-night-flash/069-contrast-color-filter.webp",
+      "bytes": 74932,
+      "sha256": "9dadb3756cd06eaace622220d2ac2375133eee28449f60b670ca074672ab174d"
+    },
+    {
+      "url": "./images/sources/14-facebook-reel-1589829399301145-night-flash/070-night-flash.webp",
+      "bytes": 68538,
+      "sha256": "eaf5ed154688cb1c8e627f8856ea7792ad73a49dddce7ba0e905c1b4bb91bf9d"
+    },
+    {
+      "url": "./images/sources/14-facebook-reel-1589829399301145-night-flash/071-1-2x-hairline-grid.webp",
+      "bytes": 69464,
+      "sha256": "b52a1703355bfa66f6ec69c4b7b136372a79b0cd25c28068bc9dc9a0717e6189"
+    },
+    {
+      "url": "./images/sources/15-facebook-reel-2936209176743812-male-hiking/072-shoe-foreground-perspective.webp",
+      "bytes": 28674,
+      "sha256": "2627dba6040704deaf6d35c7aafa61414bff96e56962967cc754328526307c6a"
+    },
+    {
+      "url": "./images/sources/15-facebook-reel-2936209176743812-male-hiking/073-relaxed-sitting-pose.webp",
+      "bytes": 29354,
+      "sha256": "8dc3954aa99a20cf3e9738312129f1db614598e8bc36e8e36c41e618f58a8186"
+    },
+    {
+      "url": "./images/sources/15-facebook-reel-2936209176743812-male-hiking/074-wide-angle-standing-pose.webp",
+      "bytes": 33438,
+      "sha256": "af81b6a310063f4dff8466f65f348d097aef69a8170b7c015201c4ee989bf648"
+    },
+    {
+      "url": "./images/sources/15-facebook-reel-2936209176743812-male-hiking/075-sitting-staggered-legs.webp",
+      "bytes": 33616,
+      "sha256": "aa4ee6efc665eacd453b8ea8d1197f25e8077ff83c850e7c0439eab47cb209d4"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/076-2x-low-angle.webp",
+      "bytes": 24770,
+      "sha256": "c4bd0155e0ecce9d926e85b0d89d15740c6d8a1f92883e9a1e24cab8b30ee32d"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/077-person-building-half-frame.webp",
+      "bytes": 20874,
+      "sha256": "b62d707479452579a08336de6f023ef254bb71c8f5b7709e9094b46ec1f3819a"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/078-wall-hide-crowd.webp",
+      "bytes": 19658,
+      "sha256": "aeaa66d6416ae023680ef1c9429badaadf4dbec7a074d9cbeaea90a6499ca8a0"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/079-building-top-right.webp",
+      "bytes": 20392,
+      "sha256": "fefa679d1da596d6c403cb83b741247bf2297f65989c70f17125fe290e185b15"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/080-sharp-building-blurred-person.webp",
+      "bytes": 21094,
+      "sha256": "eb1b668d1f9b30902d24c2430837b678ae6a2a27cede71a4ebec0110672859eb"
+    },
+    {
+      "url": "./images/sources/16-facebook-reel-1797829391228281-temple/081-railing-3x-compression.webp",
+      "bytes": 31240,
+      "sha256": "af421489d8a60b5ac63a400f0ebef8d6935a664e2dd4bc17ace03e13bdccd16e"
+    }
+  ]
+}
