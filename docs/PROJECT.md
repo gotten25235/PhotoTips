@@ -15,6 +15,8 @@
 - 深色 / 淺色模式
 - `file://` 直接開啟
 - HTTP 模式 Service Worker 離線快取
+- 離線準備面板（核心 / 縮圖 / 完整圖）
+- Cache 完整性檢查、缺檔重試與清除離線資料
 
 本專案只參考 `ChinaYunnan_0916_nav-refresh-weather` 的 UI 與檔案整理思想，內容與雲南旅遊無關。
 
@@ -355,3 +357,104 @@ topicSeries   = 整理後相同主題系列
 ### 不要因技巧「男女皆可」就同時貼男女標籤
 
 `genders` 只描述示意圖片的實際人物。
+
+
+---
+
+## 啟動規則
+
+### `START.bat`
+正式啟動器，架構以可用的 Yunnan 內嵌 PowerShell HTTP Server 為基礎。
+
+規則：
+1. **不可依賴 Python / Anaconda / Node.js**。
+2. 使用 Windows PowerShell 在 `127.0.0.1` 建立靜態 HTTP Server。
+3. 從 port `8765` 開始，自動嘗試到 `8785`，避免固定 port 被占用造成啟動失敗。
+4. 正常情況下，`START.bat` 與 `index.html` 放在同一專案根目錄。
+5. 若啟動器被放在上一層，會嘗試尋找第一個包含 `index.html` 的 `PhotoTips*` 子資料夾。
+6. 非圖片檔回應使用 `no-cache, no-store, must-revalidate`，降低舊 JS / HTML 快取造成「更新後仍不能用」的問題。
+7. 圖片可長期快取，因圖片採來源資料夾＋固定語意檔名管理。
+8. 啟動 URL 帶版本 query，例如 `?v=20260916-7`，協助避開舊 Service Worker 快取。
+
+### `START_SERVER.bat`
+僅作相容入口，直接呼叫 `START.bat`，避免專案出現兩套不同 Server 行為。
+
+### Service Worker 更新規則
+- HTML / CSS / JS / data 採 **network-first**，先取得最新版本。
+- 圖片採 **cache-first**，兼顧離線與載入速度。
+- 每次重要程式更新必須提升 `sw.js` 的 cache key。
+- 目前 cache key：`photo-tips-v7`。
+
+
+## 9. 離線準備（2026-09-17）
+
+本版參考 ChinaYunnan 的離線準備流程，PhotoTips 採用三層離線內容：
+
+1. **網頁核心（必要）**
+   - `index.html`
+   - `css/style.css`
+   - `js/app.js`
+   - `js/offline.js`
+   - `data/tips.js`
+   - `manifest.webmanifest`
+   - `offline-manifest.json`
+2. **預覽圖片（可選）**
+   - 81 張 `-thumb.webp`
+   - 約 3.7 MB
+3. **完整圖片（可選）**
+   - 81 張完整 WebP
+   - 約 5.9 MB
+
+全部圖片約 9.6 MB，另加少量核心檔。
+
+### 9.1 Cache 分層
+
+```text
+photo-tips-app-v8          # App Shell / 資料 / manifest
+photo-tips-images-v1       # 162 張圖片，穩定保留
+photo-tips-offline-meta-v1 # 離線檢查結果
+```
+
+程式版本更新時只替換 App Cache；圖片 Cache 不因 JS / CSS 更新而整包刪除。
+
+### 9.2 真實完整性檢查
+
+`offline-manifest.json` 記錄 81 張縮圖與 81 張完整圖的：
+
+- 相對 URL
+- bytes
+- SHA-256
+
+「離線已備妥」不是單純 localStorage flag。Service Worker 會實際檢查 Cache 是否存在，並比對圖片 SHA-256。只有已選內容全部通過才顯示完成。
+
+### 9.3 UI 狀態
+
+頂部按鈕會依狀態顯示：
+
+```text
+⇩ 離線準備
+… 準備中
+✓ 離線已備妥
+✓ 離線可用
+! 離線未備妥
+```
+
+面板支援：
+
+- 全選 / 只留核心
+- 下載已選內容
+- 即時下載進度
+- 重新檢查
+- 只重試缺少項目
+- 查看缺少檔案
+- 清除圖片快取
+- 清除全部離線下載
+- PWA 安裝提示
+
+### 9.4 執行環境
+
+Service Worker 需要 `http://localhost` / `http://127.0.0.1` 或 HTTPS。正式使用請用 `START.bat`。直接以 `file://` 雙擊 `index.html` 仍可瀏覽基本內容，但離線準備會提示改用 `START.bat`。
+
+### 9.5 外部來源限制
+
+Facebook / IG 等來源影片不屬於本站離線素材。離線時可完整查看本站 81 招文字與已下載圖片，但「查看來源」仍需網路。
