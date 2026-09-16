@@ -4,8 +4,8 @@
 
 「光影筆記」是獨立的攝影技巧網站，目前包含：
 
-- 81 招技巧
-- 16 個原始來源
+- 87 招技巧
+- 17 個原始來源
 - 8 個整理後主題
 - 手機系列疊卡
 - 桌面系列分組
@@ -46,7 +46,8 @@ images/
    ├─ 13-facebook-reel-1095871943388192-corridor/
    ├─ 14-facebook-reel-1589829399301145-night-flash/
    ├─ 15-facebook-reel-2936209176743812-male-hiking/
-   └─ 16-facebook-reel-1797829391228281-temple/
+   ├─ 16-facebook-reel-1797829391228281-temple/
+   └─ 17-threads-kaikaiveg-DTwZ23FkyM-railing-poses/
 ```
 
 ### 2.2 內容分類：只放 metadata
@@ -68,6 +69,21 @@ images/
 ```
 
 這兩件事必須分開。
+
+### 2.3 2026-09-17 新增 Threads 來源
+
+第 17 個來源：
+
+```text
+17-threads-kaikaiveg-DTwZ23FkyM-railing-poses
+```
+
+- 來源：`https://www.threads.com/@kaikaiveg/post/DTwZ23FkyM_`
+- 來源系列：`欄杆人像姿勢`
+- 技巧：82–87
+- 主題系列：`人像姿勢`
+- 示範人物：女生
+
 
 ---
 
@@ -135,7 +151,7 @@ sourceSeries
 - 手機：同來源疊成一疊卡片。
 - 桌面：同來源一個 section。
 - Reader：只在同 `sourceId` 中左右切換。
-- 系列下拉：顯示 16 個來源系列。
+- 系列下拉：顯示 17 個來源系列。
 
 ### 4.2 依主題（topic mode）
 
@@ -168,7 +184,7 @@ topicSeries
 ### 4.3 篩選與分組的順序
 
 ```text
-81 筆資料
+87 筆資料
   ↓
 主分類 / 拍法 / 圖片分類 / 搜尋 / 收藏
   ↓
@@ -205,9 +221,9 @@ Reader 不受目前篩選結果截斷；點進一張後會載入該來源或該�
 
 ### 5.2 目前重新檢查結果
 
-81 招中：
+87 招中：
 
-- 女生示範：46 招
+- 女生示範：52 招
 - 男生示範：13 招
 - 無性別標籤：22 招
 
@@ -220,7 +236,7 @@ Reader 不受目前篩選結果截斷；點進一張後會載入該來源或該�
 - 45–49：男生
 - 53–71：女生
 - 72–75：男生
-- 76–81：女生
+- 76–87：女生
 
 其餘沒有明確人像示範的技巧保持 `[]`。
 
@@ -276,25 +292,35 @@ Reader 不受目前篩選結果截斷；點進一張後會載入該來源或該�
 ```text
 PhotoTips_0916/
 ├─ index.html
-├─ PROJECT.md
 ├─ README.md
 ├─ BUILD.txt
 ├─ START.bat
+├─ START_SERVER.bat
 ├─ manifest.webmanifest
+├─ build.json                 # 日常更新探針
+├─ asset-manifest.json        # App Shell SHA-256
+├─ offline-manifest.json      # 離線素材與圖片 SHA-256
 ├─ sw.js
 ├─ css/
 │  └─ style.css
 ├─ js/
-│  └─ app.js
+│  ├─ app.js
+│  ├─ offline.js
+│  └─ settings.js
 ├─ data/
 │  ├─ tips.json
 │  └─ tips.js
+├─ tools/
+│  ├─ release.json
+│  ├─ generate_offline_manifest.py
+│  └─ generate_build_manifest.py
 ├─ images/
 │  └─ sources/
 │     ├─ 01-facebook-reel-.../
 │     ├─ 02-facebook-share-v-.../
-│     └─ ... 16 個來源資料夾
+│     └─ ... 17 個來源資料夾
 └─ docs/
+   ├─ PROJECT.md
    └─ 原始攝影技巧整理.md
 ```
 
@@ -307,7 +333,7 @@ PhotoTips_0916/
 1. 建立新的來源資料夾：
 
 ```text
-images/sources/17-facebook-reel-xxxxxxxx-new-topic/
+images/sources/18-facebook-reel-xxxxxxxx-new-topic/
 ```
 
 2. 將這支來源擷取的完整圖與縮圖全部放進該資料夾。
@@ -374,16 +400,25 @@ topicSeries   = 整理後相同主題系列
 5. 若啟動器被放在上一層，會嘗試尋找第一個包含 `index.html` 的 `PhotoTips*` 子資料夾。
 6. 非圖片檔回應使用 `no-cache, no-store, must-revalidate`，降低舊 JS / HTML 快取造成「更新後仍不能用」的問題。
 7. 圖片可長期快取，因圖片採來源資料夾＋固定語意檔名管理。
-8. 啟動 URL 帶版本 query，例如 `?v=20260916-7`，協助避開舊 Service Worker 快取。
+8. 啟動 URL 帶版本 query，協助避開舊入口快取；實際程式更新判斷以 `build.json` 為準。
 
 ### `START_SERVER.bat`
 僅作相容入口，直接呼叫 `START.bat`，避免專案出現兩套不同 Server 行為。
 
 ### Service Worker 更新規則
-- HTML / CSS / JS / data 採 **network-first**，先取得最新版本。
-- 圖片採 **cache-first**，兼顧離線與載入速度。
-- 每次重要程式更新必須提升 `sw.js` 的 cache key。
-- 目前 cache key：`photo-tips-v7`。
+更新架構直接沿用 `ChinaYunnan_0916`：
+
+- `build.json` 是唯一的日常更新探針。
+- `index.html` 帶 `data-app-version` 與 `data-app-build`。
+- App Cache 名稱為 `photo-tips-app-<version>-<build>`。
+- HTML navigation 採 **Network First**；離線才回退目前 App Cache。
+- CSS / JS / JSON 等 App Shell 採 **Cache First**；只有新 Build 安裝、手動強制更新或首次缺檔時才重新抓取。
+- `asset-manifest.json` 保存 App Shell SHA-256；新 Build 安裝時，內容未變的核心檔直接從上一個 App Cache 複製。
+- 圖片採穩定的 `photo-tips-images-v1` Cache，不因 Build 改變整包刪除。
+- `offline-manifest.json` 保存所有本地圖片 SHA-256；只更新內容真的變更、刪除或雜湊不一致的已快取圖片。
+- 設定視窗提供「檢查更新」與「強制重新載入」，行為與雲南版一致。
+
+目前版本：`1.1.0`，Build：`20260917-021920`。
 
 
 ## 9. 離線準備（2026-09-17）
@@ -399,27 +434,27 @@ topicSeries   = 整理後相同主題系列
    - `manifest.webmanifest`
    - `offline-manifest.json`
 2. **預覽圖片（可選）**
-   - 81 張 `-thumb.webp`
-   - 約 3.7 MB
+   - 87 張 `-thumb.webp`
+   - 約 4.2 MB
 3. **完整圖片（可選）**
-   - 81 張完整 WebP
-   - 約 5.9 MB
+   - 87 張完整 WebP
+   - 約 6.7 MB
 
-全部圖片約 9.6 MB，另加少量核心檔。
+全部圖片約 10.9 MB，另加少量核心檔。
 
 ### 9.1 Cache 分層
 
 ```text
-photo-tips-app-v8          # App Shell / 資料 / manifest
-photo-tips-images-v1       # 162 張圖片，穩定保留
-photo-tips-offline-meta-v1 # 離線檢查結果
+photo-tips-app-1.1.0-20260917-021920 # 目前 Build 的 App Shell
+photo-tips-images-v1                  # 174 張圖片，跨 Build 穩定保留
+photo-tips-offline-v1                 # 離線檢查 / reconcile metadata
 ```
 
 程式版本更新時只替換 App Cache；圖片 Cache 不因 JS / CSS 更新而整包刪除。
 
 ### 9.2 真實完整性檢查
 
-`offline-manifest.json` 記錄 81 張縮圖與 81 張完整圖的：
+`offline-manifest.json` 記錄 87 張縮圖與 87 張完整圖的：
 
 - 相對 URL
 - bytes
@@ -457,4 +492,81 @@ Service Worker 需要 `http://localhost` / `http://127.0.0.1` 或 HTTPS。正式
 
 ### 9.5 外部來源限制
 
-Facebook / IG 等來源影片不屬於本站離線素材。離線時可完整查看本站 81 招文字與已下載圖片，但「查看來源」仍需網路。
+Facebook / IG / Threads 等來源貼文不屬於本站離線素材。離線時可完整查看本站 87 招文字與已下載圖片，但「查看來源」仍需網路。
+
+## 10. 介面版面與彈跳視窗（2026-09-17）
+
+本版參考 ChinaYunnan 的介面版面邏輯，新增可持久化的「手機版 / 電腦版」選擇。
+
+### 10.1 介面版面
+
+設定鍵：
+
+```text
+photo-tips-ui-layout-v1
+```
+
+可選：
+
+- `mobile`：預設。手機使用窄版系列疊卡；一般桌面裝置仍依螢幕寬度顯示桌面系列。
+- `desktop`：手機重新載入時使用約 1280px 桌面 viewport，完整保留桌面系列分組與比例並縮放到實體螢幕。
+
+設定儲存在 localStorage，線上、離線與安裝成 PWA 後共用。
+
+實作：
+
+- `index.html` 開頁前先讀取版面設定，避免先渲染手機版再跳桌面版。
+- `js/settings.js` 管理設定視窗、版面切換、重新載入與偏好同步。
+- `html[data-ui-layout="desktop"] body` 設定桌面最小寬度，與數值 viewport 配合。
+
+### 10.2 彈跳視窗規則
+
+Reader、離線準備、介面設定皆採 **inset dialog**：
+
+- 不可在手機上貼滿整個 viewport。
+- 四周保留可見 backdrop 縫隙。
+- 四角保留圓角。
+- 點擊外部 backdrop 可關閉。
+- `×` / 返回 / 完成 / `Esc` 皆可離開。
+- 內容過長時，只讓 dialog 內部區域捲動。
+
+彈窗幾何直接依照雲南版最終 override：手機 Reader / 離線準備採 `width:min(90vw, ...)` 與 `height:80dvh`，因此左右各保留約 5vw 的可點擊 backdrop；設定視窗同樣採 90vw、最高 80dvh。幾何規則使用最終 `!important` override，避免早期 bottom-sheet / full-screen CSS 再覆蓋。
+
+### 10.3 離線與更新同步
+
+介面設定、離線準備與更新系統共用同一套 Build：
+
+- `tools/release.json`：軟體版本與 Build ID。
+- `tools/generate_offline_manifest.py`：依 `tips.json` 重建 87 張縮圖、87 張完整圖、核心清單與圖片 SHA-256。
+- `tools/generate_build_manifest.py`：依核心清單產生 `build.json` 與 `asset-manifest.json`。
+- `sw.js`：讀取上述 manifest，執行 App Shell reuse、圖片 reconcile、強制核心重抓與離線準備。
+- `START.bat`：只負責本機 HTTP 服務，不再用自己的版本字串作為更新真相來源。
+
+每次發布流程必須先更新 `tools/release.json` 的 Build，再依序執行：
+
+```text
+python tools/generate_offline_manifest.py
+python tools/generate_build_manifest.py
+python tools/generate_build_manifest.py --check
+```
+
+然後同步 `index.html` / `sw.js` 內的 version/build 常數。
+
+
+---
+
+## 11. 雲南版更新邏輯對齊（1.1.0）
+
+本版的更新流程以 `ChinaYunnan_0916` 為直接參考，執行順序如下：
+
+1. 開頁或回到前景時，讀取遠端 `build.json`（`cache:no-store`）。
+2. 比對 HTML 的 `version|build` 與目前 Service Worker 回報的 `version|build`。
+3. 發現新 Build 時呼叫 `registration.update()`，讓新 SW 安裝；新 SW 會用 `asset-manifest.json` 比較 SHA-256，未變的核心檔直接複製舊 Cache。
+4. 新 SW `skipWaiting` 並接管後才重新載入頁面。
+5. Build 相同但使用者按「檢查更新」時，執行 `RECONCILE_IMAGES`：只檢查目前已快取的圖片，雜湊不符才重新抓取。
+6. 使用者按「強制重新載入」時，先執行 `FORCE_REFRESH_APP_SHELL` 重新抓核心，再 reconcile 圖片，最後帶 cache-busting query 重載。
+7. 網路失敗時保留目前可離線版本，不會因更新檢查失敗破壞既有 Cache。
+
+### 彈窗對齊
+
+Reader 的 dialog、header、16:10 圖片框、內容寬度、資訊格、footer 與 mobile 90vw / 80dvh 幾何直接比照雲南 Detail Reader。手機 Reader footer 隱藏左右按鈕，只保留位置文字，主要以左右滑動切換內容。

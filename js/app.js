@@ -216,6 +216,6 @@ function initEvents(){
   let sx=0,sy=0;$('#reader-scroll').addEventListener('touchstart',e=>{const t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;},{passive:true});$('#reader-scroll').addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.25)navReader(dx>0?'prev':'next');},{passive:true});
   bindStackSwipe();
 }
-function init(){renderFilters();renderFiltersState();updateFavCount();apply();initEvents();if(location.protocol.startsWith('http')&&'serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});}
+function init(){renderFilters();renderFiltersState();updateFavCount();apply();initEvents();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

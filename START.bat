@@ -120,7 +120,7 @@ function Send-Response {
     $Stream.Flush()
 }
 
-$version = '20260917-offline-v8'
+$version = '1.1.0-20260917-021920'
 $url = "http://127.0.0.1:$port/?v=$version"
 Write-Host "Website folder: $root"
 Write-Host "Local address:  $url"

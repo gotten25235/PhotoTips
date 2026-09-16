@@ -1,0 +1,16 @@
+{
+  "version": "1.1.0",
+  "build": "20260917-021920",
+  "assets": {
+    "./": "c6a282bea0b913cefde9803d54e636a9542df111293940a99b7933e4a053c0d3",
+    "./index.html": "c6a282bea0b913cefde9803d54e636a9542df111293940a99b7933e4a053c0d3",
+    "./manifest.webmanifest": "10a7f30772681a5e28ff8f4d57eb48bd47e4e1be76c8c5f08a38fcd0836ecfdb",
+    "./offline-manifest.json": "10abc8e6908df13daabc7a1ee9afbd367faaaa935449cfa7faa569e8fb403de2",
+    "./css/style.css?b=20260917-021920": "893810438aa29ef467bc836ccc331489b03264d7aaa82d9a601583d769ab1778",
+    "./js/settings.js?b=20260917-021920": "392cc8383bda3f0a91b7d653f61a443e2d04a501284e877d18c32b3881d1dd35",
+    "./js/app.js?b=20260917-021920": "6af7f8a79da741abe7312f75f4bb912ff9d254e8e397a7c721e9ec27687207a6",
+    "./js/offline.js?b=20260917-021920": "8230a08c623cc3abfce018a7748278baa3d9e94943e0db77985af734118a51d0",
+    "./data/tips.js?b=20260917-021920": "49bc8a84949b7805a67434d49eb2885718f3ad64f73cf5a1453da69672c3f678",
+    "./data/tips.json": "39cb083ef0d51d30b495d59afe7ba210c2becd2a6b1b7d94f528516b0af5c34d"
+  }
+}

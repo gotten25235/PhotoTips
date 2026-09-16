@@ -1,21 +1,35 @@
 <!doctype html>
-<html lang="zh-Hant" data-theme="dark">
+<html lang="zh-Hant" data-theme="dark" data-app-version="1.1.0" data-app-build="20260917-021920">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta id="app-viewport" name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <script>
+  (()=>{
+    const layoutKey='photo-tips-ui-layout-v1';
+    let layout='mobile';
+    try{const saved=localStorage.getItem(layoutKey);if(saved==='mobile'||saved==='desktop')layout=saved;}catch{}
+    document.documentElement.dataset.uiLayout=layout;
+    const coarse=window.matchMedia?.('(pointer: coarse)')?.matches||navigator.maxTouchPoints>0;
+    const widths=[window.innerWidth,screen?.width,window.visualViewport?.width].filter(Number.isFinite);
+    const deviceWidth=widths.length?Math.min(...widths):9999;
+    const phone=!!coarse&&deviceWidth<=760;
+    document.documentElement.dataset.deviceForm=phone?'phone':'desktop';
+    document.documentElement.dataset.runtimeLayout=phone?(layout==='desktop'?'mobile-desktop':'mobile'):'desktop';
+    if(layout==='desktop')document.getElementById('app-viewport')?.setAttribute('content','width=1280,viewport-fit=cover,user-scalable=yes');
+    try{const t=localStorage.getItem('photo-tips-theme-v1');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');}catch{}
+  })();
+  </script>
   <meta name="theme-color" content="#102a25">
-  <meta name="description" content="81 招手機與相機拍攝技巧：男生、女生、人像、風景、建築、夜景、動態與調色。">
+  <meta name="description" content="87 招手機與相機拍攝技巧：男生、女生、人像、風景、建築、夜景、動態與調色。">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="光影筆記">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css">
-  <title>光影筆記 · 81 招拍攝技巧</title>
-  <script>
-  (()=>{try{const t=localStorage.getItem('photo-tips-theme-v1');if(t)document.documentElement.dataset.theme=t;else document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'}catch{}})();
-  </script>
-  <script defer src="data/tips.js"></script>
-  <script defer src="js/app.js"></script>
-  <script defer src="js/offline.js"></script>
+  <link rel="stylesheet" href="css/style.css?b=20260917-021920">
+  <title>光影筆記 · 87 招拍攝技巧</title>
+  <script defer src="data/tips.js?b=20260917-021920"></script>
+  <script defer src="js/settings.js?b=20260917-021920"></script>
+  <script defer src="js/app.js?b=20260917-021920"></script>
+  <script defer src="js/offline.js?b=20260917-021920"></script>
 </head>
 <body>
   <a class="skip" href="#tips">跳到技巧</a>
@@ -26,6 +40,7 @@
       <button id="offline-btn" class="offline-shortcut" type="button" data-state="idle" title="離線準備"><span data-offline-wide>⇩ 離線準備</span><span class="offline-shortcut-compact" data-offline-compact>⇩ 離線</span></button>
       <button id="random-btn" class="icon-btn" type="button" title="隨機一招" aria-label="隨機一招">↻</button>
       <button id="fav-btn" class="icon-btn fav-top" type="button" title="只看收藏" aria-pressed="false">♡ <span id="fav-count">0</span></button>
+      <button id="settings-btn" class="icon-btn" type="button" title="介面設定" aria-label="介面設定">⚙</button>
       <button id="theme-btn" class="icon-btn" type="button" title="切換明暗色" aria-label="切換明暗色">◐</button>
     </div>
   </header>
@@ -33,14 +48,14 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-collage" aria-hidden="true">
-        <img src="images/sources/15-facebook-reel-2936209176743812-male-hiking/072-shoe-foreground-perspective-thumb.webp" alt=""><img src="images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/045-ground-level-wide-angle-thumb.webp" alt=""><img src="images/sources/13-facebook-reel-1095871943388192-corridor/065-pillar-frame-thumb.webp" alt=""><img src="images/sources/14-facebook-reel-1589829399301145-night-flash/068-lower-night-exposure-thumb.webp" alt="">
+        <img src="images/sources/15-facebook-reel-2936209176743812-male-hiking/072-shoe-foreground-perspective-thumb.webp" alt=""><img src="images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/045-ground-level-wide-angle-thumb.webp" alt=""><img src="images/sources/13-facebook-reel-1095871943388192-corridor/065-pillar-frame-thumb.webp" alt=""><img src="images/sources/17-threads-kaikaiveg-DTwZ23FkyM-railing-poses/082-railing-leg-up-side-look-thumb.webp" alt="">
       </div>
       <div class="hero-shade"></div>
       <div class="hero-copy">
-        <span class="eyebrow">81 WAYS TO SHOOT BETTER</span>
+        <span class="eyebrow">87 WAYS TO SHOOT BETTER</span>
         <h1 id="hero-title">不知道怎麼拍，<br><em>先找一招。</em></h1>
         <p>男生、女生、人像、風景、建築、夜景與拍攝基礎，一句話就能現場照著拍。</p>
-        <div class="hero-stats"><span><b>81</b> 招技巧</span><span><b>16</b> 來源</span><span><b>8</b> 主題</span></div>
+        <div class="hero-stats"><span><b>87</b> 招技巧</span><span><b>17</b> 來源</span><span><b>8</b> 主題</span></div>
       </div>
     </section>
 
@@ -70,7 +85,7 @@
     </section>
 
     <section id="tips" class="tips-section" aria-labelledby="tips-title">
-      <div class="section-head"><div><span class="eyebrow">PHOTO TIPS</span><h2 id="tips-title">來源系列</h2></div><span id="result-count" class="result-count">81 招 · 16 系列</span></div>
+      <div class="section-head"><div><span class="eyebrow">PHOTO TIPS</span><h2 id="tips-title">來源系列</h2></div><span id="result-count" class="result-count">87 招 · 17 系列</span></div>
       <div id="active-summary" class="active-summary" hidden></div>
       <div id="series-stacks" class="series-stacks" aria-label="手機系列疊卡"></div>
       <div id="series-desktop" class="series-desktop" aria-label="桌面系列分組"></div>
@@ -92,9 +107,9 @@
         <section class="offline-select-panel" aria-label="下載內容">
           <div class="offline-select-head"><div><strong>下載內容</strong><small>核心檔為必要；圖片可分開準備</small></div><div><button type="button" class="offline-small-btn" data-offline-select-all>全選</button><button type="button" class="offline-small-btn" data-offline-select-none>只留核心</button></div></div>
           <div class="offline-select-grid">
-            <label class="offline-select-item is-required"><input type="checkbox" checked disabled><span><strong>網頁核心 <em>必要</em></strong><small>介面、81 招資料、分類、收藏與 PWA</small></span></label>
-            <label class="offline-select-item"><input type="checkbox" data-offline-thumb checked><span><strong>預覽圖片</strong><small data-thumb-size>81 張縮圖</small></span></label>
-            <label class="offline-select-item"><input type="checkbox" data-offline-full checked><span><strong>完整圖片</strong><small data-full-size>81 張完整圖</small></span></label>
+            <label class="offline-select-item is-required"><input type="checkbox" checked disabled><span><strong>網頁核心 <em>必要</em></strong><small>介面、87 招資料、分類、收藏與 PWA</small></span></label>
+            <label class="offline-select-item"><input type="checkbox" data-offline-thumb checked><span><strong>預覽圖片</strong><small data-thumb-size>87 張縮圖</small></span></label>
+            <label class="offline-select-item"><input type="checkbox" data-offline-full checked><span><strong>完整圖片</strong><small data-full-size>87 張完整圖</small></span></label>
           </div>
           <div class="offline-size-line">已選下載容量：<b data-total-size>計算中…</b></div>
         </section>
@@ -123,6 +138,36 @@
     </div>
   </dialog>
 
+  <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-dialog-title">
+    <div class="settings-shell">
+      <header class="settings-head">
+        <div><span class="eyebrow">INTERFACE LAYOUT</span><h2 id="settings-dialog-title">介面版面</h2><p>參考雲南版面規則，可在手機上切換完整電腦版。</p></div>
+        <button type="button" class="reader-x" data-settings-close aria-label="關閉介面設定">×</button>
+      </header>
+      <section class="settings-body">
+        <div class="layout-setting-card">
+          <div><strong>顯示版面</strong><small>設定會儲存在這個瀏覽器，線上、離線與 PWA 共用。</small></div>
+          <label>版面
+            <select id="layout-select" data-ui-layout-select aria-label="介面版面">
+              <option value="mobile">手機版（預設）</option>
+              <option value="desktop">電腦版</option>
+            </select>
+          </label>
+        </div>
+        <div class="layout-help">
+          <b data-layout-current>目前：手機版</b>
+          <p><strong>手機版：</strong>手機採觸控與窄版疊卡；一般電腦仍依螢幕寬度顯示桌面系列。</p>
+          <p><strong>電腦版：</strong>手機改用完整桌面寬度並自動縮放，保留桌面系列分組與比例。</p>
+        </div>
+        <article class="release-version-card">
+          <div><span class="eyebrow">SOFTWARE VERSION</span><h3>版本 1.1.0</h3><p>更新機制比照雲南版：重新整理時會檢查最新 Build，並以 SHA-256 核對已快取圖片；只有內容真的改變才重新下載。強制重新載入會重新抓取網站核心檔，再確認圖片快取，不會清除收藏與介面偏好。</p><small>Build 20260917-021920</small></div>
+          <div class="release-version-actions"><button type="button" class="offline-action" data-app-check-update>檢查更新</button><button type="button" class="offline-action" data-app-force-reload>強制重新載入</button></div>
+        </article>
+      </section>
+      <footer class="settings-foot"><button type="button" class="offline-action" data-settings-close>完成</button></footer>
+    </div>
+  </dialog>
+
   <dialog id="reader" class="reader-dialog" aria-label="技巧完整閱讀">
     <div class="reader-shell">
       <header class="reader-head"><button type="button" data-reader-close>← 返回</button><div><span class="eyebrow">PHOTO TIP</span><strong id="reader-head-title">拍攝技巧</strong></div><button type="button" class="reader-x" data-reader-close aria-label="關閉">×</button></header>
@@ -132,5 +177,183 @@
   </dialog>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const canUseServiceWorker='serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1');
+      const localVersion=document.documentElement.dataset.appVersion||'';
+      const localBuild=document.documentElement.dataset.appBuild||'';
+      const checkInterval=30000;
+      let checking=null,lastChecked=0,retryTimer=null,statusTimer=null;
+      const navigationType=performance.getEntriesByType?.('navigation')?.[0]?.type||'';
+      const wasManualReload=navigationType==='reload';
+
+      try{
+        const cleanUrl=new URL(location.href);
+        if(cleanUrl.searchParams.has('__phototips_reload')){
+          cleanUrl.searchParams.delete('__phototips_reload');
+          history.replaceState(history.state,'',cleanUrl.pathname+cleanUrl.search+cleanUrl.hash);
+        }
+      }catch{}
+
+      const showStatus=(message,duration=2400)=>{
+        const el=document.getElementById('toast');if(!el||!message)return;
+        el.textContent=message;el.classList.add('show');clearTimeout(statusTimer);statusTimer=setTimeout(()=>el.classList.remove('show'),duration);
+      };
+      const updateButtons=()=>[...document.querySelectorAll('[data-app-check-update],[data-app-force-reload]')];
+      const setUpdateBusy=(kind,busy)=>{
+        updateButtons().forEach(button=>{
+          if(!button.dataset.updateIdleLabel)button.dataset.updateIdleLabel=button.textContent.trim();
+          button.disabled=Boolean(busy);
+          button.setAttribute('aria-busy',String(Boolean(busy)));
+          if(!busy)button.textContent=button.dataset.updateIdleLabel;
+          else if(kind==='force'&&button.hasAttribute('data-app-force-reload'))button.textContent='正在重新載入…';
+          else if(kind==='check'&&button.hasAttribute('data-app-check-update'))button.textContent='檢查中…';
+        });
+      };
+      const hardReload=token=>{
+        const url=new URL(location.href);
+        url.searchParams.set('__phototips_reload',`${String(token||'force')}-${Date.now()}`);
+        location.replace(url.href);
+      };
+      const ensureRegistration=async()=>{
+        if(!canUseServiceWorker)throw new Error('Service Worker unavailable in this URL context');
+        const existing=await navigator.serviceWorker.getRegistration('./');
+        if(existing)return existing;
+        return navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
+      };
+      const remoteBuild=async()=>{
+        const response=await fetch(`./build.json?check=${Date.now()}`,{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
+        if(!response.ok)throw new Error(`build check HTTP ${response.status}`);
+        const data=await response.json();
+        if(!data||typeof data.version!=='string'||typeof data.build!=='string')throw new Error('invalid build metadata');
+        return data;
+      };
+      const readWorkerBuild=worker=>new Promise(resolve=>{
+        if(!worker||typeof MessageChannel==='undefined'){resolve(null);return;}
+        const channel=new MessageChannel();let settled=false;
+        const finish=value=>{if(settled)return;settled=true;clearTimeout(timer);try{channel.port1.close();}catch{}resolve(value||null);};
+        const timer=setTimeout(()=>finish(null),1600);
+        channel.port1.onmessage=event=>{const data=event.data;if(data?.type==='BUILD_INFO'&&typeof data.version==='string'&&typeof data.build==='string')finish(data);};
+        try{worker.postMessage({type:'GET_BUILD_INFO'},[channel.port2]);}catch{finish(null);}
+      });
+      const workerRequest=(worker,type,timeout=30000)=>new Promise((resolve,reject)=>{
+        if(!worker||typeof MessageChannel==='undefined'){reject(new Error('Service Worker unavailable'));return;}
+        const channel=new MessageChannel();let settled=false;
+        const finish=(ok,value)=>{if(settled)return;settled=true;clearTimeout(timer);try{channel.port1.close();}catch{}ok?resolve(value):reject(value instanceof Error?value:new Error(String(value||'Service Worker request failed')));};
+        const timer=setTimeout(()=>finish(false,new Error('Service Worker request timeout')),timeout);
+        channel.port1.onmessage=event=>{const data=event.data||{};if(data.type==='RESULT')finish(data.ok!==false,data.result||data.error);};
+        try{worker.postMessage({type},[channel.port2]);}catch(error){finish(false,error);}
+      });
+      const matchesTarget=(info,target)=>Boolean(info&&`${info.version}|${info.build}`===target);
+      const waitForTargetController=async(target,registration,{timeout=12000}={})=>{
+        const current=await readWorkerBuild(navigator.serviceWorker.controller||registration.active);
+        if(matchesTarget(current,target))return true;
+        return new Promise(resolve=>{
+          let settled=false,timer=null,poll=null;
+          const finish=value=>{if(settled)return;settled=true;clearTimeout(timer);clearInterval(poll);navigator.serviceWorker.removeEventListener('controllerchange',check);resolve(Boolean(value));};
+          const check=async()=>{const info=await readWorkerBuild(navigator.serviceWorker.controller||registration.active);if(matchesTarget(info,target))finish(true);};
+          navigator.serviceWorker.addEventListener('controllerchange',check);poll=setInterval(check,450);timer=setTimeout(()=>finish(false),timeout);check();
+        });
+      };
+      const scheduleRetry=()=>{if(retryTimer||!navigator.onLine)return;retryTimer=setTimeout(()=>{retryTimer=null;checkBuild({force:true});},15000);};
+      const reconcileCurrentImages=async registration=>{
+        const worker=navigator.serviceWorker.controller||registration?.active;
+        if(!worker)return {checked:0,updated:0,removed:0,failed:0};
+        return workerRequest(worker,'RECONCILE_IMAGES',45000);
+      };
+      const checkBuild=({force=false,userInitiated=false,forceReload=false,reconcileImages=false}={})=>{
+        if(checking){
+          if(!userInitiated)return checking;
+          showStatus('正在檢查更新…',4000);
+          return checking.then(()=>checkBuild({force:true,userInitiated:true,forceReload,reconcileImages}));
+        }
+        if(!navigator.onLine){
+          if(forceReload&&userInitiated){showStatus('目前離線，正在重新載入已下載版本…',1500);setTimeout(()=>location.reload(),260);return Promise.resolve({status:'reloading-offline'});}
+          if(userInitiated)showStatus('目前離線，使用已下載版本');return Promise.resolve({status:'offline'});
+        }
+        const now=Date.now();
+        if(!force&&now-lastChecked<checkInterval)return Promise.resolve({status:'throttled'});
+        lastChecked=now;if(userInitiated)showStatus(forceReload?'正在準備強制重新載入…':'正在檢查更新…',4000);
+        checking=(async()=>{
+          try{
+            const remote=await remoteBuild(),target=`${remote.version}|${remote.build}`,local=`${localVersion}|${localBuild}`;
+            if(!canUseServiceWorker){
+              if(target!==local){showStatus('發現新版，正在重新載入…',1800);setTimeout(()=>hardReload(remote.build),220);return {status:'updated-no-sw'};}
+              if(forceReload){showStatus('網站版本已確認，正在強制重新載入…',1500);setTimeout(()=>hardReload(remote.build||'force'),220);return {status:'reloading-no-sw'};}
+              if(userInitiated)showStatus('✓ 已是最新版 · 此環境不支援離線快取');
+              return {status:'current-no-sw'};
+            }
+            const registration=await ensureRegistration();
+            const activeInfo=await readWorkerBuild(navigator.serviceWorker.controller||registration.active);
+            const htmlCurrent=target===local,workerCurrent=matchesTarget(activeInfo,target);
+            if(htmlCurrent&&workerCurrent){
+              if(forceReload||reconcileImages){
+                let appResult=null;
+                if(forceReload){
+                  showStatus('正在強制重新抓取網站核心…',6000);
+                  const worker=navigator.serviceWorker.controller||registration.active;
+                  appResult=await workerRequest(worker,'FORCE_REFRESH_APP_SHELL',45000).catch(error=>{console.warn('Forced App Shell refresh failed',error);return {checked:0,updated:0,failed:1};});
+                }
+                showStatus(forceReload?'正在確認圖片快取…':'正在確認網站與圖片快取…',5000);
+                const imageResult=await reconcileCurrentImages(registration).catch(error=>{console.warn('Image reconciliation failed',error);return null;});
+                const updated=Number(imageResult?.updated||0),removed=Number(imageResult?.removed||0),failed=Number(imageResult?.failed||0);
+                if(forceReload){
+                  const appUpdated=Number(appResult?.updated||0),appFailed=Number(appResult?.failed||0);
+                  const imageDetail=updated||removed?`圖片更新 ${updated}${removed?`、移除 ${removed}`:''}`:'圖片已確認';
+                  const appDetail=appFailed?`網站核心有 ${appFailed} 個檔案重抓失敗`:`網站核心已重抓${appUpdated?`（${appUpdated} 個檔案有變更）`:''}`;
+                  showStatus(`${appDetail} · ${imageDetail}，正在重新載入…`,1800);
+                  setTimeout(()=>hardReload(remote.build||'force'),260);
+                  return {status:'reloading',appResult,imageResult};
+                }
+                if(userInitiated){
+                  if(failed)showStatus(`網站已是最新版 · 圖片檢查有 ${failed} 張失敗`);
+                  else if(updated||removed)showStatus(`✓ 已同步圖片：更新 ${updated} · 移除 ${removed}`);
+                  else showStatus('✓ 網站與圖片已是最新版');
+                }
+                return {status:'current',imageResult};
+              }
+              if(userInitiated)showStatus('✓ 已是最新版');
+              return {status:'current'};
+            }
+            showStatus('發現新版，正在更新…',6000);
+            await registration.update();
+            registration.waiting?.postMessage({type:'SKIP_WAITING'});
+            const ready=await waitForTargetController(target,registration);
+            if(!ready){console.warn('New build metadata is visible, but the matching Service Worker is not active yet; retrying without reload.',remote);if(userInitiated)showStatus('新版正在部署，稍後會再檢查');scheduleRetry();return {status:'pending'};}
+            showStatus('新版已準備完成，正在重新載入…',1600);
+            setTimeout(()=>location.reload(),180);
+            return {status:'updated'};
+          }catch(error){
+            console.warn('Build check failed; keeping current offline-capable build:',error);
+            if(forceReload&&userInitiated){showStatus('無法連線檢查版本，改用一般重新載入…',1500);setTimeout(()=>{if(canUseServiceWorker)location.reload();else hardReload('fallback');},260);return {status:'reload-fallback',error};}
+            if(userInitiated)showStatus('更新檢查失敗，繼續使用目前版本');
+            scheduleRetry();return {status:'error',error};
+          }finally{checking=null;}
+        })();
+        return checking;
+      };
+      const runUserAction=(kind,button)=>{
+        if(button&&!button.dataset.updateIdleLabel)button.dataset.updateIdleLabel=button.textContent.trim();
+        setUpdateBusy(kind,true);
+        showStatus(kind==='force'?'正在準備強制重新載入…':'正在檢查更新…',4000);
+        const task=kind==='force'?checkBuild({force:true,userInitiated:true,forceReload:true}):checkBuild({force:true,userInitiated:true,reconcileImages:true});
+        return Promise.resolve(task).finally(()=>{setTimeout(()=>setUpdateBusy(kind,false),320);});
+      };
+      window.PhotoTipsUpdateSystem={
+        checkNow:button=>runUserAction('check',button),
+        forceReload:button=>runUserAction('force',button),
+        checkBuild,canUseServiceWorker
+      };
+      window.addEventListener('load',()=>{
+        if(canUseServiceWorker){
+          ensureRegistration().then(()=>checkBuild({force:true,userInitiated:wasManualReload,reconcileImages:wasManualReload})).catch(error=>{console.warn('Service Worker registration failed:',error);if(wasManualReload)showStatus('離線快取服務未就緒，仍會檢查網站版本');checkBuild({force:true,userInitiated:wasManualReload}).catch(()=>{});});
+        }else{checkBuild({force:true,userInitiated:wasManualReload}).catch(()=>{});}
+      },{once:true});
+      window.addEventListener('online',()=>checkBuild({force:true}));
+      window.addEventListener('pageshow',event=>{if(event.persisted)checkBuild({force:true});});
+      document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkBuild();});
+    })();
+  </script>
 </body>
 </html>

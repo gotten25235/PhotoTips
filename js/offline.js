@@ -21,7 +21,7 @@ function isStandalone(){return matchMedia?.('(display-mode: standalone)').matche
 async function loadManifest(){
   if(manifest)return manifest;
   try{const r=await fetch(`./offline-manifest.json?t=${Date.now()}`,{cache:'no-store'});if(r.ok){manifest=await r.json();return manifest;}}catch{}
-  try{const c=await caches.open('photo-tips-app-v8'),r=await c.match('./offline-manifest.json');if(r){manifest=await r.json();return manifest;}}catch{}
+  try{const names=(await caches.keys()).filter(n=>n.startsWith('photo-tips-app-')).sort().reverse();for(const name of names){const c=await caches.open(name),r=await c.match('./offline-manifest.json');if(r){manifest=await r.json();return manifest;}}}catch{}
   return null;
 }
 function bytesMeta(){
@@ -31,7 +31,7 @@ function bytesMeta(){
 }
 async function ensureSW(){
   if(!canSW())throw new Error('請使用 START.bat 開啟網站，才能使用離線準備');
-  const reg=await navigator.serviceWorker.register('./sw.js');
+  const reg=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
   try{await reg.update();}catch{}
   const pending=reg.installing||reg.waiting;
   if(pending&&pending.state!=='activated'){
@@ -73,8 +73,8 @@ function statusIcon(missing,enabled=true){if(!enabled)return '–';if(missing===
 function paint(result=state.lastCheck){
   const d=$('#offline-dialog');if(!d)return;
   const s=selections(),m=bytesMeta();
-  $('[data-thumb-size]').textContent=`81 張縮圖 · ${fmtBytes(m.thumb)}`;
-  $('[data-full-size]').textContent=`81 張完整圖 · ${fmtBytes(m.full)}`;
+  $('[data-thumb-size]').textContent=`${manifest?.thumbs?.length||0} 張縮圖 · ${fmtBytes(m.thumb)}`;
+  $('[data-full-size]').textContent=`${manifest?.full?.length||0} 張完整圖 · ${fmtBytes(m.full)}`;
   const selectedBytes=(s.thumbs?m.thumb:0)+(s.full?m.full:0);
   $('[data-total-size]').textContent=`約 ${fmtBytes(selectedBytes)} + 核心檔`;
   $('[data-last-prepared]').textContent=fmtTime(state.lastPreparedAt);
@@ -151,7 +151,7 @@ function bind(){
 async function init(){
   await loadManifest();bind();syncInstallButton();syncConnection();paint();
   if(canSW())try{await ensureSW();await check({quiet:true});}catch{}
-  if(!state.nudged){state.nudged=true;save();setTimeout(()=>showToast('出門前可按「⇩ 離線準備」下載全部 81 招'),1200);}
+  if(!state.nudged){state.nudged=true;save();setTimeout(()=>showToast(`出門前可按「⇩ 離線準備」下載全部 ${window.PHOTO_TIPS?.length||0} 招`),1200);}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
