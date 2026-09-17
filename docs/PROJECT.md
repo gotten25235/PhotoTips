@@ -420,7 +420,7 @@ topicSeries   = 整理後相同主題系列
 - `offline-manifest.json` 保存所有本地圖片 SHA-256；只更新內容真的變更、刪除或雜湊不一致的已快取圖片。
 - 設定視窗提供「檢查更新」與「強制重新載入」，行為與雲南版一致。
 
-目前版本：`1.1.0`，Build：`20260917-021920`。
+目前版本：`1.1.4`，Build：`20260918-034500`。
 
 
 ## 9. 離線準備（2026-09-17）
@@ -599,3 +599,25 @@ python tools/generate_build_manifest.py --check
 ### 彈窗對齊
 
 Reader 的 dialog、header、16:10 圖片框、內容寬度、資訊格、footer 與 mobile 90vw / 80dvh 幾何直接比照雲南 Detail Reader。手機 Reader footer 隱藏左右按鈕，只保留位置文字，主要以左右滑動切換內容。
+
+## 12. 圖片放大 Lightbox（2026-09-18）
+
+圖卡與 Reader 的圖片均可開啟獨立 Lightbox。
+
+### 互動規則
+
+- 點擊圖卡圖片：開啟圖片 Lightbox。
+- 點擊圖卡文字區／卡片其他區域：維持原本 Reader 行為。
+- 手機系列卡左右滑動仍優先；有效滑動後會抑制 click，避免誤開 Lightbox。
+- Reader 圖片也使用相同 Lightbox，關閉後回到原 Reader。
+
+### Lightbox 操作
+
+- 手機：Pointer Events 支援雙指縮放與放大後拖曳。
+- 電腦：滑鼠滾輪縮放、拖曳查看。
+- 雙擊：適合畫面 / 2× 切換。
+- 控制列：縮小、放大、重設、完成。
+- 最大縮放：4×。
+- 幾何採雲南式 inset modal，四周保留 backdrop，可點外側離開。
+
+圖片放大仍使用各 tip 的 `image` 完整圖路徑，不新增重複圖片檔。

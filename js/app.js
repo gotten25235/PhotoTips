@@ -94,7 +94,7 @@ function apply(){
 function card(t){
   const meta=[imageTypeOf(t),...t.genders.slice(0,1),...t.categories.filter(x=>x!=='人像').slice(0,1),...t.tags.filter(x=>!['人像','風景','建築'].includes(x)).slice(0,1)].filter(Boolean).slice(0,4);
   return `<article class="tip-card" tabindex="0" data-tip="${t.id}" aria-label="第 ${t.id} 招 ${esc(t.title)}">
-    <div class="tip-image"><img loading="lazy" decoding="async" src="${t.thumb}" alt="${esc(t.title)}"><span class="tip-no">${String(t.id).padStart(2,'0')}</span><button type="button" class="tip-fav${favorites.has(t.id)?' is-saved':''}" data-fav="${t.id}" aria-label="${favorites.has(t.id)?'取消收藏':'收藏'} ${esc(t.title)}">${favorites.has(t.id)?'♥':'♡'}</button></div>
+    <div class="tip-image" data-zoom-tip="${t.id}" title="點擊放大圖片"><img loading="lazy" decoding="async" src="${t.thumb}" alt="${esc(t.title)}"><span class="tip-no">${String(t.id).padStart(2,'0')}</span><button type="button" class="tip-fav${favorites.has(t.id)?' is-saved':''}" data-fav="${t.id}" aria-label="${favorites.has(t.id)?'取消收藏':'收藏'} ${esc(t.title)}">${favorites.has(t.id)?'♥':'♡'}</button></div>
     <div class="tip-copy"><div class="tip-meta">${meta.map((x,i)=>`<span class="mini-tag${i===0?' is-image-class':''}">${esc(x)}</span>`).join('')}</div><h3>${esc(t.title)}</h3><div class="tip-series">${esc(state.groupMode==='source'?t.sourceSeries:t.topicSeries)}</div><p>${esc(t.text)}</p></div>
   </article>`;
 }
@@ -110,7 +110,7 @@ function stackMarkup(group){
     <header class="series-stack-head"><div><span class="eyebrow">${state.groupMode==='source'?'SOURCE SERIES':'TOPIC SERIES'}</span><h3>${esc(group.label)}</h3><small>${extra}</small></div><span>${group.items.length} 招</span></header>
     <div class="stack-stage" data-stack-stage="${esc(group.id)}">${back2}${back1}
       <article class="series-card-main" tabindex="0" data-tip="${t.id}" data-group-id="${esc(group.id)}" aria-label="${esc(group.label)}，第 ${idx+1} 張，共 ${group.items.length} 張：${esc(t.title)}">
-        <div class="series-card-image"><img draggable="false" src="${t.thumb}" alt="${esc(t.title)}"><span class="series-tip-no">TIP ${String(t.id).padStart(2,'0')}</span><button type="button" class="tip-fav series-fav${favorites.has(t.id)?' is-saved':''}" data-fav="${t.id}" aria-label="${favorites.has(t.id)?'取消收藏':'收藏'} ${esc(t.title)}">${favorites.has(t.id)?'♥':'♡'}</button></div>
+        <div class="series-card-image" data-zoom-tip="${t.id}" title="點擊放大圖片"><img draggable="false" src="${t.thumb}" alt="${esc(t.title)}"><span class="series-tip-no">TIP ${String(t.id).padStart(2,'0')}</span><button type="button" class="tip-fav series-fav${favorites.has(t.id)?' is-saved':''}" data-fav="${t.id}" aria-label="${favorites.has(t.id)?'取消收藏':'收藏'} ${esc(t.title)}">${favorites.has(t.id)?'♥':'♡'}</button></div>
         <div class="series-card-copy"><div class="series-card-tags">${meta.map(x=>`<span>${esc(x)}</span>`).join('')}</div><h4>${esc(t.title)}</h4><p>${esc(t.text)}</p></div>
       </article>
     </div>
@@ -175,7 +175,7 @@ function renderReader(direction=''){
   const pills=[`<span class="reader-pill accent">${esc(imageTypeOf(t))}</span>`,...t.genders.map(x=>`<span class="reader-pill accent">${esc(x)}</span>`),...t.categories.map(x=>`<span class="reader-pill">${esc(x)}</span>`),...t.tags.slice(0,4).map(x=>`<span class="reader-pill">${esc(x)}</span>`)].join('');
   const details=[['圖片分類',imageTypeOf(t)],['來源系列',t.sourceSeries],['主題系列',t.topicSeries]];
   if(t.scenes.length)details.push(['場景',t.scenes.join('、')]);if(t.tags.length)details.push(['拍法',t.tags.slice(0,6).join('、')]);if(t.genders.length)details.push(['畫面人物',t.genders.join('、')]);
-  $('#reader-scroll').innerHTML=`<article class="reader-article${direction?' reader-'+direction:''}"><figure class="reader-figure"><img src="${t.image}" alt="${esc(t.title)}"><span class="reader-number">TIP ${String(t.id).padStart(2,'0')}</span></figure><div class="reader-copy"><div class="reader-kicker">${pills}</div><h2>${esc(t.title)}</h2><p class="reader-intro">${esc(t.text)}</p><div class="reader-grid">${details.map(([a,b])=>`<div class="reader-detail"><span>${esc(a)}</span><b>${esc(b)}</b></div>`).join('')}</div><div class="reader-source"><span>${esc(t.sourceTitle||t.sourceLabel||'原始影片')}</span><a href="${esc(t.source)}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></div><button type="button" class="reader-save${favorites.has(t.id)?' is-saved':''}" data-reader-fav="${t.id}">${favorites.has(t.id)?'♥ 已收藏':'♡ 收藏這招'}</button></div></article>`;
+  $('#reader-scroll').innerHTML=`<article class="reader-article${direction?' reader-'+direction:''}"><figure class="reader-figure" data-zoom-tip="${t.id}" title="點擊放大圖片"><img src="${t.image}" alt="${esc(t.title)}"><span class="reader-number">TIP ${String(t.id).padStart(2,'0')}</span></figure><div class="reader-copy"><div class="reader-kicker">${pills}</div><h2>${esc(t.title)}</h2><p class="reader-intro">${esc(t.text)}</p><div class="reader-grid">${details.map(([a,b])=>`<div class="reader-detail"><span>${esc(a)}</span><b>${esc(b)}</b></div>`).join('')}</div><div class="reader-source"><span>${esc(t.sourceTitle||t.sourceLabel||'原始影片')}</span><a href="${esc(t.source)}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></div><button type="button" class="reader-save${favorites.has(t.id)?' is-saved':''}" data-reader-fav="${t.id}">${favorites.has(t.id)?'♥ 已收藏':'♡ 收藏這招'}</button></div></article>`;
   $('#reader-pos').textContent=`${state.readerIndex+1} / ${state.readerPool.length} · ${state.readerGroup?.mode==='topic'?'主題':'來源'}內左右滑動`;
   $$('#reader [data-reader-nav]').forEach(b=>{b.disabled=(b.dataset.readerNav==='prev'?state.readerIndex<=0:state.readerIndex>=state.readerPool.length-1);});
 }
@@ -187,6 +187,63 @@ function navReader(dir){
 function moveStack(groupId,dir){
   const group=groupByMode(state.filtered).find(g=>g.id===groupId);if(!group)return false;const idx=getStackIndex(group),next=idx+(dir==='prev'?-1:1);if(next<0||next>=group.items.length)return false;
   seriesProgress[groupProgressKey(group)]=group.items[next].id;saveProgress();renderStacks();return true;
+}
+
+
+const zoomState={scale:1,x:0,y:0,pointers:new Map(),drag:null,pinch:null};
+function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
+function zoomElements(){return {dialog:$('#image-lightbox'),viewport:$('#image-lightbox-viewport'),img:$('#image-lightbox-img'),label:$('#image-lightbox-scale')};}
+function applyZoom(){
+  const {img,label}=zoomElements();if(!img)return;
+  img.style.transform=`translate3d(${zoomState.x}px,${zoomState.y}px,0) scale(${zoomState.scale})`;
+  img.classList.toggle('is-zoomed',zoomState.scale>1.001);
+  if(label)label.textContent=zoomState.scale<=1.001?'適合畫面':`${Math.round(zoomState.scale*100)}%`;
+}
+function resetZoom(){zoomState.scale=1;zoomState.x=0;zoomState.y=0;zoomState.pointers.clear();zoomState.drag=null;zoomState.pinch=null;applyZoom();}
+function setZoomScale(next){
+  zoomState.scale=clamp(next,1,4);
+  if(zoomState.scale<=1.001){zoomState.x=0;zoomState.y=0;}
+  applyZoom();
+}
+function showZoomHint(){
+  try{if(localStorage.getItem('photo-tips-zoom-hint-v1'))return;localStorage.setItem('photo-tips-zoom-hint-v1','1');}catch{}
+  const hint=$('#image-lightbox-hint');if(!hint)return;hint.hidden=false;clearTimeout(showZoomHint._t);showZoomHint._t=setTimeout(()=>{hint.hidden=true;},1800);
+}
+function openImageLightbox(id){
+  const t=tips.find(x=>x.id===Number(id));if(!t)return;
+  const {dialog,img}=zoomElements();if(!dialog||!img)return;
+  resetZoom();img.src=t.image;img.alt=t.title;$('#image-lightbox-title').textContent=t.title;$('#image-lightbox-tip').textContent=`TIP ${String(t.id).padStart(2,'0')}`;
+  if(!dialog.open){if(dialog.showModal)dialog.showModal();else dialog.setAttribute('open','');}
+  showZoomHint();
+}
+function closeImageLightbox(){const d=$('#image-lightbox');if(!d?.open)return;if(d.close)d.close();else d.removeAttribute('open');resetZoom();}
+function bindImageLightbox(){
+  const {dialog,viewport,img}=zoomElements();if(!dialog||!viewport||!img)return;
+  dialog.addEventListener('click',e=>{if(e.target===dialog)closeImageLightbox();});
+  viewport.addEventListener('dblclick',e=>{e.preventDefault();setZoomScale(zoomState.scale>1.01?1:2);});
+  viewport.addEventListener('wheel',e=>{e.preventDefault();const factor=e.deltaY<0?1.18:.84;setZoomScale(zoomState.scale*factor);},{passive:false});
+  viewport.addEventListener('pointerdown',e=>{
+    e.preventDefault();viewport.setPointerCapture?.(e.pointerId);zoomState.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(zoomState.pointers.size===1){zoomState.drag={id:e.pointerId,startX:e.clientX,startY:e.clientY,x:zoomState.x,y:zoomState.y};zoomState.pinch=null;}
+    if(zoomState.pointers.size===2){const pts=[...zoomState.pointers.values()];zoomState.pinch={distance:Math.hypot(pts[1].x-pts[0].x,pts[1].y-pts[0].y),scale:zoomState.scale};zoomState.drag=null;}
+    viewport.classList.add('is-interacting');
+  });
+  viewport.addEventListener('pointermove',e=>{
+    if(!zoomState.pointers.has(e.pointerId))return;e.preventDefault();zoomState.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(zoomState.pointers.size>=2&&zoomState.pinch){const pts=[...zoomState.pointers.values()].slice(0,2);const dist=Math.hypot(pts[1].x-pts[0].x,pts[1].y-pts[0].y);setZoomScale(zoomState.pinch.scale*(dist/Math.max(1,zoomState.pinch.distance)));return;}
+    if(zoomState.pointers.size===1&&zoomState.drag&&zoomState.scale>1.001){zoomState.x=zoomState.drag.x+(e.clientX-zoomState.drag.startX);zoomState.y=zoomState.drag.y+(e.clientY-zoomState.drag.startY);applyZoom();}
+  });
+  const endPointer=e=>{
+    zoomState.pointers.delete(e.pointerId);viewport.releasePointerCapture?.(e.pointerId);
+    if(zoomState.pointers.size===1){const [id,pt]=[...zoomState.pointers.entries()][0];zoomState.drag={id,startX:pt.x,startY:pt.y,x:zoomState.x,y:zoomState.y};zoomState.pinch=null;}
+    else if(zoomState.pointers.size===0){zoomState.drag=null;zoomState.pinch=null;viewport.classList.remove('is-interacting');}
+  };
+  viewport.addEventListener('pointerup',endPointer);viewport.addEventListener('pointercancel',endPointer);
+  img.addEventListener('dragstart',e=>e.preventDefault());
+  $$('[data-image-lightbox-close]').forEach(b=>b.addEventListener('click',closeImageLightbox));
+  $('[data-image-zoom-in]')?.addEventListener('click',()=>setZoomScale(zoomState.scale+.5));
+  $('[data-image-zoom-out]')?.addEventListener('click',()=>setZoomScale(zoomState.scale-.5));
+  $('[data-image-zoom-reset]')?.addEventListener('click',resetZoom);
 }
 
 function bindStackSwipe(){
@@ -202,12 +259,13 @@ function initEvents(){
     const b=e.target.closest('button'),stackCard=e.target.closest('.series-card-main'),c=e.target.closest('.tip-card');
     if(b?.dataset.fav){e.stopPropagation();toggleFav(Number(b.dataset.fav));return;}if(b?.dataset.readerFav){toggleFav(Number(b.dataset.readerFav));return;}
     if(b?.dataset.stackPrev){moveStack(b.dataset.stackPrev,'prev');return;}if(b?.dataset.stackNext){moveStack(b.dataset.stackNext,'next');return;}
+    const zoomTarget=e.target.closest?.('[data-zoom-tip]');if(zoomTarget&&!b){if(Date.now()<swipeSuppressUntil)return;e.stopPropagation();openImageLightbox(Number(zoomTarget.dataset.zoomTip));return;}
     if(b?.dataset.groupMode){setGroupMode(b.dataset.groupMode);return;}if(b?.dataset.groupOnly){state.groupFilter=b.dataset.groupOnly;renderFiltersState();apply();$('#tips').scrollIntoView({behavior:'smooth',block:'start'});return;}
     if(b?.dataset.primary){setPrimary(b.dataset.primary);return;}if(b?.dataset.secondary){state.secondary=b.dataset.secondary;renderFiltersState();apply();return;}if(b?.dataset.imagetype){state.imageType=b.dataset.imagetype;renderFiltersState();apply();return;}
     if(b?.hasAttribute('data-reset')){reset();return;}if(b?.hasAttribute('data-reader-close')){$('#reader').close();return;}if(b?.dataset.readerNav){navReader(b.dataset.readerNav);return;}
     if(stackCard&&!b){if(Date.now()<swipeSuppressUntil)return;openReader(Number(stackCard.dataset.tip));return;}if(c&&!b){openReader(Number(c.dataset.tip));}
   });
-  document.addEventListener('keydown',e=>{const c=e.target.closest?.('.tip-card,.series-card-main');if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openReader(Number(c.dataset.tip));}if($('#reader').open&&e.key==='ArrowLeft')navReader('prev');if($('#reader').open&&e.key==='ArrowRight')navReader('next');});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#image-lightbox')?.open){e.preventDefault();closeImageLightbox();return;}const z=e.target.closest?.('[data-zoom-tip]');if(z&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openImageLightbox(Number(z.dataset.zoomTip));return;}const c=e.target.closest?.('.tip-card,.series-card-main');if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openReader(Number(c.dataset.tip));}if($('#reader').open&&e.key==='ArrowLeft')navReader('prev');if($('#reader').open&&e.key==='ArrowRight')navReader('next');});
   $('#search').addEventListener('input',e=>{state.query=e.target.value;apply();});$('#clear-search').addEventListener('click',()=>{$('#search').value='';state.query='';apply();});
   $('#series-filter').addEventListener('change',e=>{state.groupFilter=e.target.value;apply();});$('#reset-btn').addEventListener('click',reset);$('#fav-btn').addEventListener('click',()=>{state.favoritesOnly=!state.favoritesOnly;renderFiltersState();apply();});
   $('#random-btn').addEventListener('click',()=>{const pool=state.filtered.length?state.filtered:tips;if(!pool.length)return;const t=pool[Math.floor(Math.random()*pool.length)];openReader(t.id);});
@@ -215,6 +273,6 @@ function initEvents(){
   let sx=0,sy=0;$('#reader-scroll').addEventListener('touchstart',e=>{const t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;},{passive:true});$('#reader-scroll').addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.25)navReader(dx>0?'prev':'next');},{passive:true});
   bindStackSwipe();
 }
-function init(){renderFilters();renderFiltersState();updateFavCount();apply();initEvents();}
+function init(){renderFilters();renderFiltersState();updateFavCount();apply();initEvents();bindImageLightbox();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

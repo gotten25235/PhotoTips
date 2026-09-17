@@ -1,4 +1,4 @@
 PhotoTips_0916
-Version: 1.1.3
-Build: 20260917-194500
-Features: 101 tips, 19 sources, source/topic grouping, source-based images, Yunnan-style inset dialogs, Yunnan-style build/update system, offline prep, mobile/desktop layout selector, system/light/dark theme copied from ChinaYunnan, added Threads sources DUu-eUVD2_c and DZCZfbQme8w
+Version: 1.1.4
+Build: 20260918-034500
+Features: 101 tips, 19 sources, source/topic grouping, source-based images, Yunnan-style inset dialogs, Yunnan-style build/update system, offline prep, mobile/desktop layout selector, system/light/dark theme copied from ChinaYunnan, image lightbox with pinch/wheel zoom and pan
