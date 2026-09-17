@@ -4,15 +4,15 @@
 
 「光影筆記」是獨立的攝影技巧網站，目前包含：
 
-- 87 招技巧
-- 17 個原始來源
+- 101 招技巧
+- 19 個原始來源
 - 8 個整理後主題
 - 手機系列疊卡
 - 桌面系列分組
 - 來源 / 主題雙模式
 - 搜尋、篩選、收藏、隨機一招
 - 同系列 Reader
-- 深色 / 淺色模式
+- 系統預設 / 淺色 / 深色三段主題模式
 - `file://` 直接開啟
 - HTTP 模式 Service Worker 離線快取
 - 離線準備面板（核心 / 縮圖 / 完整圖）
@@ -48,6 +48,8 @@ images/
    ├─ 15-facebook-reel-2936209176743812-male-hiking/
    ├─ 16-facebook-reel-1797829391228281-temple/
    └─ 17-threads-kaikaiveg-DTwZ23FkyM-railing-poses/
+   └─ 18-threads-beauty-photo-01-DUu-eUVD2_c-girlfriend-guide/
+   └─ 19-threads-healthcare-aaron680528-DZCZfbQme8w-male-poses/
 ```
 
 ### 2.2 內容分類：只放 metadata
@@ -184,7 +186,7 @@ topicSeries
 ### 4.3 篩選與分組的順序
 
 ```text
-87 筆資料
+101 筆資料
   ↓
 主分類 / 拍法 / 圖片分類 / 搜尋 / 收藏
   ↓
@@ -434,10 +436,10 @@ topicSeries   = 整理後相同主題系列
    - `manifest.webmanifest`
    - `offline-manifest.json`
 2. **預覽圖片（可選）**
-   - 87 張 `-thumb.webp`
+   - 101 張 `-thumb.webp`
    - 約 4.2 MB
 3. **完整圖片（可選）**
-   - 87 張完整 WebP
+   - 101 張完整 WebP
    - 約 6.7 MB
 
 全部圖片約 10.9 MB，另加少量核心檔。
@@ -446,7 +448,7 @@ topicSeries   = 整理後相同主題系列
 
 ```text
 photo-tips-app-1.1.0-20260917-021920 # 目前 Build 的 App Shell
-photo-tips-images-v1                  # 174 張圖片，跨 Build 穩定保留
+photo-tips-images-v1                  # 202 張圖片，跨 Build 穩定保留
 photo-tips-offline-v1                 # 離線檢查 / reconcile metadata
 ```
 
@@ -454,7 +456,7 @@ photo-tips-offline-v1                 # 離線檢查 / reconcile metadata
 
 ### 9.2 真實完整性檢查
 
-`offline-manifest.json` 記錄 87 張縮圖與 87 張完整圖的：
+`offline-manifest.json` 記錄 101 張縮圖與 101 張完整圖的：
 
 - 相對 URL
 - bytes
@@ -494,7 +496,7 @@ Service Worker 需要 `http://localhost` / `http://127.0.0.1` 或 HTTPS。正式
 
 Facebook / IG / Threads 等來源貼文不屬於本站離線素材。離線時可完整查看本站 87 招文字與已下載圖片，但「查看來源」仍需網路。
 
-## 10. 介面版面與彈跳視窗（2026-09-17）
+## 10. 介面、主題與彈跳視窗（2026-09-17）
 
 本版參考 ChinaYunnan 的介面版面邏輯，新增可持久化的「手機版 / 電腦版」選擇。
 
@@ -519,7 +521,34 @@ photo-tips-ui-layout-v1
 - `js/settings.js` 管理設定視窗、版面切換、重新載入與偏好同步。
 - `html[data-ui-layout="desktop"] body` 設定桌面最小寬度，與數值 viewport 配合。
 
-### 10.2 彈跳視窗規則
+
+### 10.2 顯示主題
+
+顯示主題邏輯直接對齊 `ChinaYunnan_0917_sunwish-persist`：
+
+設定鍵：
+
+```text
+photo-tips-color-theme-v1
+```
+
+有效值：
+
+- `system`：預設。透過 `matchMedia('(prefers-color-scheme: dark)')` 跟隨作業系統；系統外觀變更時立即同步。
+- `light`：固定淺色，`color-scheme` 使用 `only light`，避免 Android / Samsung 自動暗色化。
+- `dark`：固定深色，`color-scheme` 使用 `dark`。
+
+啟動時 `index.html` 會在 CSS 載入前先解析偏好並設定：
+
+- `data-theme-preference`：使用者偏好 (`system / light / dark`)。
+- `data-theme`：實際解析結果 (`light / dark`)。
+- `<meta name="color-scheme">`。
+- `<meta name="theme-color">`。
+- `document.documentElement.style.colorScheme`。
+
+`js/settings.js` 負責後續同步、儲存、系統主題監聽與設定頁下拉選單。右上角舊的 `◐` 二段切換已移除，所有主題變更統一從 `⚙` →「顯示主題」管理。
+
+### 10.3 彈跳視窗規則
 
 Reader、離線準備、介面設定皆採 **inset dialog**：
 
@@ -532,7 +561,7 @@ Reader、離線準備、介面設定皆採 **inset dialog**：
 
 彈窗幾何直接依照雲南版最終 override：手機 Reader / 離線準備採 `width:min(90vw, ...)` 與 `height:80dvh`，因此左右各保留約 5vw 的可點擊 backdrop；設定視窗同樣採 90vw、最高 80dvh。幾何規則使用最終 `!important` override，避免早期 bottom-sheet / full-screen CSS 再覆蓋。
 
-### 10.3 離線與更新同步
+### 10.4 離線與更新同步
 
 介面設定、離線準備與更新系統共用同一套 Build：
 

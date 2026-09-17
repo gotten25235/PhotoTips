@@ -1,8 +1,10 @@
 <!doctype html>
-<html lang="zh-Hant" data-theme="dark" data-app-version="1.1.0" data-app-build="20260917-021920">
+<html lang="zh-Hant" data-app-version="1.1.3" data-app-build="20260917-194500">
 <head>
   <meta charset="utf-8">
   <meta id="app-viewport" name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta id="app-color-scheme" name="color-scheme" content="light dark">
+  <meta id="app-theme-color" name="theme-color" content="#f5f3ec">
   <script>
   (()=>{
     const layoutKey='photo-tips-ui-layout-v1';
@@ -16,20 +18,30 @@
     document.documentElement.dataset.deviceForm=phone?'phone':'desktop';
     document.documentElement.dataset.runtimeLayout=phone?(layout==='desktop'?'mobile-desktop':'mobile'):'desktop';
     if(layout==='desktop')document.getElementById('app-viewport')?.setAttribute('content','width=1280,viewport-fit=cover,user-scalable=yes');
-    try{const t=localStorage.getItem('photo-tips-theme-v1');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');}catch{}
+    const themeKey='photo-tips-color-theme-v1';
+    let themePreference='system';
+    try{const savedTheme=localStorage.getItem(themeKey);if(savedTheme==='system'||savedTheme==='light'||savedTheme==='dark')themePreference=savedTheme;}catch{}
+    const resolvedTheme=themePreference==='system'?(window.matchMedia?.('(prefers-color-scheme: dark)')?.matches?'dark':'light'):themePreference;
+    const schemeMeta=document.getElementById('app-color-scheme');
+    const themeMeta=document.getElementById('app-theme-color');
+    document.documentElement.dataset.themePreference=themePreference;
+    document.documentElement.dataset.theme=resolvedTheme;
+    const schemeValue=themePreference==='light'?'only light':themePreference==='dark'?'dark':'light dark';
+    document.documentElement.style.colorScheme=schemeValue;
+    if(schemeMeta)schemeMeta.setAttribute('content',schemeValue);
+    if(themeMeta)themeMeta.setAttribute('content',resolvedTheme==='dark'?'#0a1412':'#f5f3ec');
   })();
   </script>
-  <meta name="theme-color" content="#102a25">
-  <meta name="description" content="87 招手機與相機拍攝技巧：男生、女生、人像、風景、建築、夜景、動態與調色。">
+  <meta name="description" content="101 招手機與相機拍攝技巧：男生、女生、人像、風景、建築、夜景、動態與調色。">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="光影筆記">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?b=20260917-021920">
-  <title>光影筆記 · 87 招拍攝技巧</title>
-  <script defer src="data/tips.js?b=20260917-021920"></script>
-  <script defer src="js/settings.js?b=20260917-021920"></script>
-  <script defer src="js/app.js?b=20260917-021920"></script>
-  <script defer src="js/offline.js?b=20260917-021920"></script>
+  <link rel="stylesheet" href="css/style.css?b=20260917-194500">
+  <title>光影筆記 · 101 招拍攝技巧</title>
+  <script defer src="data/tips.js?b=20260917-194500"></script>
+  <script defer src="js/settings.js?b=20260917-194500"></script>
+  <script defer src="js/app.js?b=20260917-194500"></script>
+  <script defer src="js/offline.js?b=20260917-194500"></script>
 </head>
 <body>
   <a class="skip" href="#tips">跳到技巧</a>
@@ -40,22 +52,21 @@
       <button id="offline-btn" class="offline-shortcut" type="button" data-state="idle" title="離線準備"><span data-offline-wide>⇩ 離線準備</span><span class="offline-shortcut-compact" data-offline-compact>⇩ 離線</span></button>
       <button id="random-btn" class="icon-btn" type="button" title="隨機一招" aria-label="隨機一招">↻</button>
       <button id="fav-btn" class="icon-btn fav-top" type="button" title="只看收藏" aria-pressed="false">♡ <span id="fav-count">0</span></button>
-      <button id="settings-btn" class="icon-btn" type="button" title="介面設定" aria-label="介面設定">⚙</button>
-      <button id="theme-btn" class="icon-btn" type="button" title="切換明暗色" aria-label="切換明暗色">◐</button>
+      <button id="settings-btn" class="icon-btn" type="button" title="介面與外觀" aria-label="介面與外觀">⚙</button>
     </div>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-collage" aria-hidden="true">
-        <img src="images/sources/15-facebook-reel-2936209176743812-male-hiking/072-shoe-foreground-perspective-thumb.webp" alt=""><img src="images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/045-ground-level-wide-angle-thumb.webp" alt=""><img src="images/sources/13-facebook-reel-1095871943388192-corridor/065-pillar-frame-thumb.webp" alt=""><img src="images/sources/17-threads-kaikaiveg-DTwZ23FkyM-railing-poses/082-railing-leg-up-side-look-thumb.webp" alt="">
+        <img src="images/sources/15-facebook-reel-2936209176743812-male-hiking/072-shoe-foreground-perspective-thumb.webp" alt=""><img src="images/sources/09-facebook-share-r-1BxfcJFnjP-grassland-creative/045-ground-level-wide-angle-thumb.webp" alt=""><img src="images/sources/13-facebook-reel-1095871943388192-corridor/065-pillar-frame-thumb.webp" alt=""><img src="images/sources/19-threads-healthcare-aaron680528-DZCZfbQme8w-male-poses/092-standing-basic-thumb.webp" alt="">
       </div>
       <div class="hero-shade"></div>
       <div class="hero-copy">
-        <span class="eyebrow">87 WAYS TO SHOOT BETTER</span>
+        <span class="eyebrow">101 WAYS TO SHOOT BETTER</span>
         <h1 id="hero-title">不知道怎麼拍，<br><em>先找一招。</em></h1>
         <p>男生、女生、人像、風景、建築、夜景與拍攝基礎，一句話就能現場照著拍。</p>
-        <div class="hero-stats"><span><b>87</b> 招技巧</span><span><b>17</b> 來源</span><span><b>8</b> 主題</span></div>
+        <div class="hero-stats"><span><b>101</b> 招技巧</span><span><b>19</b> 來源</span><span><b>8</b> 主題</span></div>
       </div>
     </section>
 
@@ -85,7 +96,7 @@
     </section>
 
     <section id="tips" class="tips-section" aria-labelledby="tips-title">
-      <div class="section-head"><div><span class="eyebrow">PHOTO TIPS</span><h2 id="tips-title">來源系列</h2></div><span id="result-count" class="result-count">87 招 · 17 系列</span></div>
+      <div class="section-head"><div><span class="eyebrow">PHOTO TIPS</span><h2 id="tips-title">來源系列</h2></div><span id="result-count" class="result-count">101 招 · 19 系列</span></div>
       <div id="active-summary" class="active-summary" hidden></div>
       <div id="series-stacks" class="series-stacks" aria-label="手機系列疊卡"></div>
       <div id="series-desktop" class="series-desktop" aria-label="桌面系列分組"></div>
@@ -107,9 +118,9 @@
         <section class="offline-select-panel" aria-label="下載內容">
           <div class="offline-select-head"><div><strong>下載內容</strong><small>核心檔為必要；圖片可分開準備</small></div><div><button type="button" class="offline-small-btn" data-offline-select-all>全選</button><button type="button" class="offline-small-btn" data-offline-select-none>只留核心</button></div></div>
           <div class="offline-select-grid">
-            <label class="offline-select-item is-required"><input type="checkbox" checked disabled><span><strong>網頁核心 <em>必要</em></strong><small>介面、87 招資料、分類、收藏與 PWA</small></span></label>
-            <label class="offline-select-item"><input type="checkbox" data-offline-thumb checked><span><strong>預覽圖片</strong><small data-thumb-size>87 張縮圖</small></span></label>
-            <label class="offline-select-item"><input type="checkbox" data-offline-full checked><span><strong>完整圖片</strong><small data-full-size>87 張完整圖</small></span></label>
+            <label class="offline-select-item is-required"><input type="checkbox" checked disabled><span><strong>網頁核心 <em>必要</em></strong><small>介面、101 招資料、分類、收藏與 PWA</small></span></label>
+            <label class="offline-select-item"><input type="checkbox" data-offline-thumb checked><span><strong>預覽圖片</strong><small data-thumb-size>101 張縮圖</small></span></label>
+            <label class="offline-select-item"><input type="checkbox" data-offline-full checked><span><strong>完整圖片</strong><small data-full-size>101 張完整圖</small></span></label>
           </div>
           <div class="offline-size-line">已選下載容量：<b data-total-size>計算中…</b></div>
         </section>
@@ -141,8 +152,8 @@
   <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-dialog-title">
     <div class="settings-shell">
       <header class="settings-head">
-        <div><span class="eyebrow">INTERFACE LAYOUT</span><h2 id="settings-dialog-title">介面版面</h2><p>參考雲南版面規則，可在手機上切換完整電腦版。</p></div>
-        <button type="button" class="reader-x" data-settings-close aria-label="關閉介面設定">×</button>
+        <div><span class="eyebrow">INTERFACE &amp; APPEARANCE</span><h2 id="settings-dialog-title">介面與外觀</h2><p>版面與顯示主題皆沿用雲南版規則，設定會保存在此瀏覽器。</p></div>
+        <button type="button" class="reader-x" data-settings-close aria-label="關閉介面與外觀">×</button>
       </header>
       <section class="settings-body">
         <div class="layout-setting-card">
@@ -154,13 +165,17 @@
             </select>
           </label>
         </div>
+        <article class="theme-mode-card">
+          <div><span class="eyebrow">APPEARANCE</span><h3>顯示主題</h3><p class="small">系統預設會跟隨裝置的淺色／深色外觀；也可以固定使用淺色或深色主題。偏好只儲存在此瀏覽器，線上、離線與 PWA 共用。</p></div>
+          <label>主題<select id="theme-select" data-color-theme-select aria-label="顯示主題"><option value="system">系統預設</option><option value="light">淺色主題</option><option value="dark">深色主題</option></select></label>
+        </article>
         <div class="layout-help">
           <b data-layout-current>目前：手機版</b>
           <p><strong>手機版：</strong>手機採觸控與窄版疊卡；一般電腦仍依螢幕寬度顯示桌面系列。</p>
           <p><strong>電腦版：</strong>手機改用完整桌面寬度並自動縮放，保留桌面系列分組與比例。</p>
         </div>
         <article class="release-version-card">
-          <div><span class="eyebrow">SOFTWARE VERSION</span><h3>版本 1.1.0</h3><p>更新機制比照雲南版：重新整理時會檢查最新 Build，並以 SHA-256 核對已快取圖片；只有內容真的改變才重新下載。強制重新載入會重新抓取網站核心檔，再確認圖片快取，不會清除收藏與介面偏好。</p><small>Build 20260917-021920</small></div>
+          <div><span class="eyebrow">SOFTWARE VERSION</span><h3>版本 1.1.3</h3><p>更新機制比照雲南版：重新整理時會檢查最新 Build，並以 SHA-256 核對已快取圖片；只有內容真的改變才重新下載。強制重新載入會重新抓取網站核心檔，再確認圖片快取，不會清除收藏與介面偏好。</p><small>Build 20260917-194500</small></div>
           <div class="release-version-actions"><button type="button" class="offline-action" data-app-check-update>檢查更新</button><button type="button" class="offline-action" data-app-force-reload>強制重新載入</button></div>
         </article>
       </section>

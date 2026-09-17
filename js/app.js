@@ -211,7 +211,6 @@ function initEvents(){
   $('#search').addEventListener('input',e=>{state.query=e.target.value;apply();});$('#clear-search').addEventListener('click',()=>{$('#search').value='';state.query='';apply();});
   $('#series-filter').addEventListener('change',e=>{state.groupFilter=e.target.value;apply();});$('#reset-btn').addEventListener('click',reset);$('#fav-btn').addEventListener('click',()=>{state.favoritesOnly=!state.favoritesOnly;renderFiltersState();apply();});
   $('#random-btn').addEventListener('click',()=>{const pool=state.filtered.length?state.filtered:tips;if(!pool.length)return;const t=pool[Math.floor(Math.random()*pool.length)];openReader(t.id);});
-  $('#theme-btn').addEventListener('click',()=>{const n=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=n;localStorage.setItem('photo-tips-theme-v1',n);});
   $('#reader').addEventListener('click',e=>{if(e.target===$('#reader'))$('#reader').close();});
   let sx=0,sy=0;$('#reader-scroll').addEventListener('touchstart',e=>{const t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;},{passive:true});$('#reader-scroll').addEventListener('touchend',e=>{const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.25)navReader(dx>0?'prev':'next');},{passive:true});
   bindStackSwipe();
