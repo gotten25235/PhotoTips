@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-app-version="1.1.4" data-app-build="20260918-034500">
+<html lang="zh-Hant" data-app-version="1.1.5" data-app-build="20260918-035500">
 <head>
   <meta charset="utf-8">
   <meta id="app-viewport" name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -36,12 +36,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="光影筆記">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?b=20260918-034500">
+  <link rel="stylesheet" href="css/style.css?b=20260918-035500">
   <title>光影筆記 · 101 招拍攝技巧</title>
-  <script defer src="data/tips.js?b=20260918-034500"></script>
-  <script defer src="js/settings.js?b=20260918-034500"></script>
-  <script defer src="js/app.js?b=20260918-034500"></script>
-  <script defer src="js/offline.js?b=20260918-034500"></script>
+  <script defer src="data/tips.js?b=20260918-035500"></script>
+  <script defer src="js/settings.js?b=20260918-035500"></script>
+  <script defer src="js/app.js?b=20260918-035500"></script>
+  <script defer src="js/offline.js?b=20260918-035500"></script>
 </head>
 <body>
   <a class="skip" href="#tips">跳到技巧</a>
@@ -175,7 +175,7 @@
           <p><strong>電腦版：</strong>手機改用完整桌面寬度並自動縮放，保留桌面系列分組與比例。</p>
         </div>
         <article class="release-version-card">
-          <div><span class="eyebrow">SOFTWARE VERSION</span><h3>版本 1.1.4</h3><p>更新機制比照雲南版：重新整理時會檢查最新 Build，並以 SHA-256 核對已快取圖片；只有內容真的改變才重新下載。強制重新載入會重新抓取網站核心檔，再確認圖片快取，不會清除收藏與介面偏好。</p><small>Build 20260918-034500</small></div>
+          <div><span class="eyebrow">SOFTWARE VERSION</span><h3>版本 1.1.5</h3><p>更新機制比照雲南版：重新整理時會檢查最新 Build，並以 SHA-256 核對已快取圖片；只有內容真的改變才重新下載。強制重新載入會重新抓取網站核心檔，再確認圖片快取，不會清除收藏與介面偏好。</p><small>Build 20260918-035500</small></div>
           <div class="release-version-actions"><button type="button" class="offline-action" data-app-check-update>檢查更新</button><button type="button" class="offline-action" data-app-force-reload>強制重新載入</button></div>
         </article>
       </section>
@@ -199,13 +199,16 @@
       </header>
       <div id="image-lightbox-viewport" class="image-lightbox-viewport">
         <img id="image-lightbox-img" src="" alt="">
-        <div id="image-lightbox-hint" class="image-lightbox-hint" hidden>雙指縮放 · 拖曳查看細節</div>
+        <div id="image-lightbox-hint" class="image-lightbox-hint" hidden>左右滑動換圖 · 雙指縮放 · 放大後拖曳</div>
       </div>
       <footer class="image-lightbox-foot">
+        <button type="button" class="image-lightbox-nav" data-image-nav="prev" aria-label="上一張">←</button>
+        <span id="image-lightbox-pos" class="image-lightbox-pos">1 / 1</span>
         <button type="button" data-image-zoom-out aria-label="縮小">−</button>
         <span id="image-lightbox-scale">適合畫面</span>
         <button type="button" data-image-zoom-in aria-label="放大">＋</button>
         <button type="button" data-image-zoom-reset>↺ 適合畫面</button>
+        <button type="button" class="image-lightbox-nav" data-image-nav="next" aria-label="下一張">→</button>
         <button type="button" data-image-lightbox-close>完成</button>
       </footer>
     </div>

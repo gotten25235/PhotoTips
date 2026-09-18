@@ -420,7 +420,7 @@ topicSeries   = 整理後相同主題系列
 - `offline-manifest.json` 保存所有本地圖片 SHA-256；只更新內容真的變更、刪除或雜湊不一致的已快取圖片。
 - 設定視窗提供「檢查更新」與「強制重新載入」，行為與雲南版一致。
 
-目前版本：`1.1.4`，Build：`20260918-034500`。
+目前版本：`1.1.5`，Build：`20260918-035500`。
 
 
 ## 9. 離線準備（2026-09-17）
@@ -621,3 +621,16 @@ Reader 的 dialog、header、16:10 圖片框、內容寬度、資訊格、footer
 - 幾何採雲南式 inset modal，四周保留 backdrop，可點外側離開。
 
 圖片放大仍使用各 tip 的 `image` 完整圖路徑，不新增重複圖片檔。
+
+
+## 12.1 Lightbox Gallery 導航（2026-09-18）
+
+圖片放大視窗進一步改成 Gallery：
+
+- Lightbox 開啟後保持同一個 dialog，不因切換上一張／下一張而關閉。
+- 目前為 1×（適合畫面）時，手機可左右滑動切換同一個「依來源／依主題」群組中的圖片。
+- 圖片放大到 1× 以上時，單指拖曳保留給平移圖片，避免與換圖手勢衝突；此時仍可使用 footer 的 ← / → 切換。
+- 電腦支援 Lightbox 內 ← / → 按鈕與鍵盤方向鍵。
+- 每次換圖會回到適合畫面，但 Lightbox 的外框、控制列與 backdrop 全程維持。
+- 從 Reader 進入 Lightbox 時，Gallery 切換會同步 Reader index；關閉 Lightbox 後 Reader 停在同一張。
+- 從一般系列圖卡進入時，Gallery pool 依目前 `groupMode`（來源 / 主題）建立。

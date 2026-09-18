@@ -6,8 +6,8 @@
   - offline-manifest.json stores packaged image SHA-256; the stable Image Cache refreshes only files whose content actually changed.
   - HTML navigation is Network First; App Shell is Cache First; images are Cache First.
 */
-const RELEASE_VERSION = '1.1.4';
-const BUILD_ID = '20260918-034500';
+const RELEASE_VERSION = '1.1.5';
+const BUILD_ID = '20260918-035500';
 const STORAGE_SCHEMA = 'v1';
 const APP_CACHE = `photo-tips-app-${RELEASE_VERSION}-${BUILD_ID}`;
 const IMAGE_CACHE = `photo-tips-images-${STORAGE_SCHEMA}`;
